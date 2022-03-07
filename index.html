@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="rtl" lang="he" xml:lang="he">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="MainCss.css">
+    <link rel="stylesheet" href="indexCSS.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -17,20 +19,59 @@
 </head>
 <body>
     <header id="header"></header>
+    <div style="clear: both;"></div>
+    <main>
+        <div class="container" id="container">
+            <!-- sign in page -->
+            <div class="form-container sign-in-container" >
+              <form method="POST" action="#" class="form" id="login"  >
+                <h1 class="form__title">Login</h1>
+                <div class="form__input-group">
+                  <label for="username">שם משתמש: </label>
+                  <input type="text" class="form__input" name="username" id="username" maxlength="20" required> 
+                </div>
+                <div class="form__input-group">
+                  <label for="pass">סיסמא: </label>
+                  <input type="password" class="form__input" name="pass" id="pass" maxlength="20" required> 
+                </div>
+                <div class="form__input-group">
+                 <br> <button type="submit" class="form__button">כניסה</button>
+                </div>
+             </form>
+            </div>
+                    
+          <script src="scripts/main.js"></script>
+        </div>
+
+        <section>
+            <h1> </h1>
+        </section>
+    </main>
+
     
 
-    <h1>שלום לכולם</h1>
-
-    <h2> שלום וברכה</h2>
-        
-
+    <footer id="footer"></footer>
     <script>
         $(document).ready(
             function(){
               $("#header").load("navbar.html");
-            }
+              $("#footer").load("footer.html");
+            }            
          )
 
+    </script>
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
     </script>
 </body>
 </html>
