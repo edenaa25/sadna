@@ -8,14 +8,10 @@ h1 {
 }
 
 p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+	font-size: 20px;
 }
 
-button {
+.buttonlog {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -41,7 +37,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
-form {
+.formlog {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -51,10 +47,11 @@ form {
 	height: 100%;
 	text-align: center;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
+	margin-bottom: 5%;
 }
 
-input {
+.inputlog {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -122,6 +119,14 @@ input {
 .container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
+.input{
+	width: 100%;
+	display: block;
+}
+#container{
+	margin-top: 5%;
+    background-image: url("/images/back.jpg") ;
+}
 
 
 
@@ -138,4 +143,17 @@ input {
 	transform: translateX(0);
 }
 
+
+.button2{
+	background-color: #6b8e23;
+}
+
+section{
+    width: 100%;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center; 
+    margin-top: 5%;
+	background-color:#f0f8ff;
+}
 
