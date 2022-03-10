@@ -122,6 +122,10 @@ input {
 .container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
+.input{
+	width: 100%;
+	display: block;
+}
 
 
 
