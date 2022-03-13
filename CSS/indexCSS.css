@@ -161,10 +161,55 @@ section{
 	/* פה ניסיתי להוריד את הגובה כך שלכל סקשן יהיה את הגובה משלו לפי התוכן.
 	אם זה לא יראה טוב אז אחרי שנעששה את כל הסקשנים נוסיף להם גובה אחיד */
     width: 100%;
-    border: 2px solid black;
-    text-align: center; 
-    margin-top: 5%;
-	background-color:#f0f8ff;
+    border: 2px solid black; 
+    margin-top: 1%;
 	padding:1% 0 ;
 }
 
+.sec1{
+	background-color:#f0f8ff;
+	text-align: center;
+}
+
+.section2{
+	background-image: url("/images/studio.jpeg");
+	background-repeat: no-repeat;
+	background-size:100%;
+	background-position: 0%;
+	text-align: center;
+	height: 450px;
+}
+
+
+#h3{
+	font-weight: bold;
+	padding-top: 2%;
+}
+
+#sec3img{
+	text-align: left;
+	width: 40%;
+	height: 40%;
+	margin: 0px 15px 15px 0px;
+}
+
+#sec3p{
+	float: right;
+	padding-right: 10%;
+		
+}
+#sec3p>p{
+	text-align: right;
+}
+
+.sec3{
+	width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+	#sec3img{text-align: center;}
+	#sec3p{
+		text-align: center;
+		padding-right: 10%;			
+	}
+}
