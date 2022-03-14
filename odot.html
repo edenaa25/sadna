@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/mainCSS.css">
+    <link rel="stylesheet" href="CSS/odotCSS.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        if (typeof jQuery == "undefined") {
+            alert("not working");
+        }
+        </script>
+    <title>אודות</title>
+</head>
+<body>
+    <header id="header"></header>
+    <main>
+        <h1>הסטודיו שלנו</h1>
+        <p>הסטודיו שלנו מנהל תהליכי הרזייה עבור לקוחותיו באמצעות תזונאים ומאמני כושר הטובים ביותר בתחום <br>
+        כל תהליך ההרזייה מתבצע באופן מקוון ובליווי אישי מטעם התזונאי ומאמן הכושר המטפלים<br>
+         חוויה מעצימה בכל אימון מחדש, מגוון אימונים מותאמים לכלל הרמות, ליווי מלא לכל אחד ואחד. <br>
+        מזמינים אתכם להתחיל ולהגשים את עצמכם עוד היום כי מכיע לכם הטוב ביותר!!! </p>
+
+    </main>
+    
+
+    <footer id="footer"></footer>
+    <script>
+        $(document).ready(
+            function(){
+              $("#header").load("navbar/navbar.html");
+              $("#footer").load("footer.html");
+            }            
+         )
+
+    </script>
+</body>
+</html>

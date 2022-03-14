@@ -152,9 +152,10 @@ button.ghost {
 	transform: translateX(0);
 }
 
-
 .button2{
 	background-color: #6b8e23;
+	margin-top: 5%;
+	font-size:x-large;
 }
 
 section{
@@ -172,7 +173,7 @@ section{
 }
 
 .section2{
-	background-image: url("/images/studio.jpeg");
+	background-image: url("/images/studio2.jpeg");
 	background-repeat: no-repeat;
 	background-size:100%;
 	background-position: 0%;
@@ -184,18 +185,19 @@ section{
 #h3{
 	font-weight: bold;
 	padding-top: 2%;
+	
 }
 
 #sec3img{
-	text-align: left;
 	width: 40%;
 	height: 40%;
 	margin: 0px 15px 15px 0px;
+	
 }
 
 #sec3p{
 	float: right;
-	padding-right: 10%;
+	padding-right: 5%;
 		
 }
 #sec3p>p{
@@ -204,12 +206,13 @@ section{
 
 .sec3{
 	width: 100%;
+	background-color:#dfe8f0 ;
 }
 
-@media only screen and (max-width: 600px) {
-	#sec3img{text-align: center;}
+@media screen and (max-width: 1200px) {
+	#sec3img{margin-left: 25%;}
 	#sec3p{
 		text-align: center;
-		padding-right: 10%;			
+		padding-right: 5%;			
 	}
 }
