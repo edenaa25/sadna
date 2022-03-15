@@ -1,0 +1,57 @@
+.h{
+    text-align: center;
+    background-color: darkcyan;
+    text-shadow: 1px 1px white;
+}
+.p{
+    text-align: right;
+    margin-right: 3%;
+    font-size:large;
+}
+
+.ul{
+    text-align: right;
+    font-size: large;
+    margin-right: 3%;
+    font-weight: bold;
+}
+#img{
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-right: 1%;
+}
+
+#arrow{
+    display: inline;
+    width: 5%;
+}
+
+#tel{
+    border-color: cadetblue;
+    border-width: 1%;
+    border-style: dotted;
+    width: 20%;
+}
+
+#form{
+    text-align: right;
+}
+
+.input2{
+	border-radius: 4px;
+	max-width: 5cm;
+	width: 30%;
+	margin: 0 1%;
+	border: 2px solid rgb(131, 125, 125);
+}
+.button2{
+	background-color:cadetblue;
+	font-size:x-large;
+}
+
+@media screen and (max-width: 480px) {
+
+
+	
+}

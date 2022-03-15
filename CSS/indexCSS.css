@@ -152,9 +152,10 @@ button.ghost {
 	transform: translateX(0);
 }
 
-
 .button2{
 	background-color: #6b8e23;
+	margin-top: 5%;
+	font-size:x-large;
 }
 
 section{
@@ -169,10 +170,12 @@ section{
 .sec1{
 	background-color:#f0f8ff;
 	text-align: center;
+	text-shadow: 2px 2px white;
+
 }
 
 .section2{
-	background-image: url("/images/studio.jpeg");
+	background-image: url("/images/studio2.jpeg");
 	background-repeat: no-repeat;
 	background-size:100%;
 	background-position: 0%;
@@ -182,18 +185,21 @@ section{
 }
 
 .section2 > div{
-	padding: 8% 0;
+	padding: 2% 0;
 	color: rgb(23, 24, 80);
 }
 
 .sec3>#sec3p{
 	text-align: center;
+	height: 450px;
+	text-shadow: 2px 2px white;
 }
 
 
 #h3{
 	font-weight: bold;
 	padding-top: 2%;
+	
 }
 /* זה ניסיון שלי לראות איך מזיזים את התמונה */
 /* #sec3img{
@@ -204,23 +210,15 @@ section{
 } */
 
 #sec3img{
-	text-align: left;
-	width: 40%;
-	height: 40%;
-	margin: 0px 15px 15px 0px;
+	width: 30%;
+	height: 40%;	
 }
 
-#sec3p{
-	float: right;
-	padding-right: 10%;
-		
-}
-#sec3p>p{
-	text-align: right;
-}
 
 .sec3{
 	width: 100%;
+	background-color:#dfe8f0 ;
+	text-align: center;
 }
 
 /* @media only screen and (max-width: 800px) {
@@ -232,9 +230,13 @@ section{
 } */
 
 @media only screen and (max-width: 600px) {
-	#sec3img{text-align: center; border: 2px solid yellow;}
+	#sec3img{text-align: center;}
 	#sec3p{
 		text-align: center;
 		padding-right: 10%;			
 	}
+}
+@media screen and (max-width: 1200px) {
+			
+	
 }
