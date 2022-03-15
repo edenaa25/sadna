@@ -170,6 +170,8 @@ section{
 .sec1{
 	background-color:#f0f8ff;
 	text-align: center;
+	text-shadow: 2px 2px white;
+
 }
 
 .section2{
@@ -179,6 +181,7 @@ section{
 	background-position: 0%;
 	text-align: center;
 	height: 450px;
+	text-shadow: 2px 2px white;
 }
 
 
@@ -189,30 +192,18 @@ section{
 }
 
 #sec3img{
-	width: 40%;
-	height: 40%;
-	margin: 0px 15px 15px 0px;
-	
+	width: 30%;
+	height: 40%;	
 }
 
-#sec3p{
-	float: right;
-	padding-right: 5%;
-		
-}
-#sec3p>p{
-	text-align: right;
-}
 
 .sec3{
 	width: 100%;
 	background-color:#dfe8f0 ;
+	text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
-	#sec3img{margin-left: 25%;}
-	#sec3p{
-		text-align: center;
-		padding-right: 5%;			
-	}
+				
+	
 }
