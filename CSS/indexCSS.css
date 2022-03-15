@@ -177,7 +177,17 @@ section{
 	background-size:100%;
 	background-position: 0%;
 	text-align: center;
-	height: 450px;
+	/* החלפתי מ450 ל350 */
+	height: 350px;
+}
+
+.section2 > div{
+	padding: 8% 0;
+	color: rgb(23, 24, 80);
+}
+
+.sec3>#sec3p{
+	text-align: center;
 }
 
 
@@ -185,6 +195,13 @@ section{
 	font-weight: bold;
 	padding-top: 2%;
 }
+/* זה ניסיון שלי לראות איך מזיזים את התמונה */
+/* #sec3img{
+	height: 100%;
+	float: left;
+	width: 40%;
+	display: inline;
+} */
 
 #sec3img{
 	text-align: left;
@@ -206,8 +223,16 @@ section{
 	width: 100%;
 }
 
+/* @media only screen and (max-width: 800px) {
+	#sec3img{text-align: center;border: 2px solid green;}
+	#sec3p{
+		text-align: center;
+		padding-right: 10%;			
+	}
+} */
+
 @media only screen and (max-width: 600px) {
-	#sec3img{text-align: center;}
+	#sec3img{text-align: center; border: 2px solid yellow;}
 	#sec3p{
 		text-align: center;
 		padding-right: 10%;			
