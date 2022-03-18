@@ -1,0 +1,97 @@
+#imgC{
+    width:100%;
+    max-height: 450px;
+}
+#sec1{
+    width: 80%;
+    margin: auto;
+    
+    
+}
+
+.p{
+    text-align: center;
+    font-size:x-large;
+}
+
+.h1{
+    font-weight: bolder;
+    font-size: 800px;
+}
+.sec1{
+    text-align: center;
+    margin-top: 2%;
+}
+#p2{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.sec3{
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font: normal 14px/1.5 "Montserrat", "Helvetica Neue", sans-serif;
+  background: #77ad7f;
+  color: #37474f;
+}
+
+#figure{
+    background: whitesmoke;
+  margin: 0 0 40px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+#figcaption{
+    padding: 20px;
+    text-align: right;
+    font-size: larger;
+}
+
+.imgF{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .ul2 {
+    margin: 0;
+    padding: 0;
+  }
+   
+  /* structural styles */
+   
+  .li2 {
+    list-style-type: none;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+   
+  /* media queries */
+   
+  @media screen and (min-width: 400px) {
+    .li2 {
+      width: 50%;
+    }
+  }
+   
+  @media screen and (min-width: 768px) {
+    .li2 {
+      width: 33.333%;
+    }
+  }
+   
+  @media screen and (min-width: 1024px) {
+    .li2 {
+      width: 25%;  
+    }    
+  }
