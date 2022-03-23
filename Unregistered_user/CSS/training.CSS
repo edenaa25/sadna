@@ -1,6 +1,6 @@
 body{width: 100%;}
 .sec1{
-    background-image: url("/images/studio2.jpeg");
+    background-image: url("/Unregistered_user/images/studio2.jpeg");
 	background-repeat: no-repeat;
 	background-size:100%;
 	background-position: 0%;
@@ -19,7 +19,7 @@ hr.new4 {
   }
 
 .sec2{
-    background-image: url("/images/marble_white_backround.jpg");   
+    background-image: url("/Unregistered_user/images/marble_white_backround.jpg");   
     margin-top: 2%;
     
 }
