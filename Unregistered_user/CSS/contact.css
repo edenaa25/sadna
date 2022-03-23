@@ -1,0 +1,62 @@
+body{
+    font-family: sans-serif;   
+    width: 100%; 
+}
+*{
+    text-align: right;
+}
+h2{
+    text-align: center;
+    height: 4.4ch;
+    padding-top: 0.6cm;
+}
+.half{
+    width: 40%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    border-radius: 4px;
+}
+.whole{
+    width: 86%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    border-radius: 4px;
+
+}
+
+p{
+    width: 70%;
+}
+.s{
+    width: 40%;
+    display: inline ;
+    border: 2px solid black;
+}
+aside{
+    float: left;
+    width: 50%;
+    border: 2px solid red;
+    height: 500px;
+}
+.main{
+    float: left;
+    width: 50%;
+    height: 500px;
+    border: 2px solid blue;
+}
+section{
+    width: 80%;
+    height: 80%;
+    margin-top: 7%;
+    padding-top: 4%;
+    padding-right: 5%;
+    border: 2px solid green;
+}
+.left{
+    float: left;
+    background-color: rgb(166, 226, 226);
+}
+.right{
+    float: right;
+    background-color: rgb(223, 233, 178);
+}
