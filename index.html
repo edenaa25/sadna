@@ -40,7 +40,6 @@
              </form>
             </div>
                     
-          <script src="scripts/main.js"></script>
         </div>
 
         <section class="sec1">
@@ -52,7 +51,7 @@
                 <br>
                 השאירו לנו פרטים ונחזור אליכם על מנת שנוכל לצאת למסע ביחד!
             </p>
-            <form action="#" method="post" >
+            <form action="/Unregistered_user/contact.php" method="post" >
                 <input class="input2" type="text" id="name" name="name" required placeholder="שם מלא">
                 <input class="input2" type="tel" id="tel" name="tel" required placeholder="טלפון">
                 <input class="input2" type="email" id="email" name="email" required placeholder="מייל">
@@ -95,13 +94,13 @@
     <script>
         $(document).ready(
             function(){
-              $("#header").load("navbar/navbar.html");
-              $("#footer").load("footer.html");
+              $("#header").load("/Unregistered_user/navbar/navbar.html");
+              $("#footer").load("/Unregistered_user/footer.html");
             }            
          )
 
     </script>
-    <script>
+    <!-- <script>
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -113,6 +112,6 @@
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
-    </script>
+    </script> -->
 </body>
 </html>
