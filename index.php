@@ -1,3 +1,11 @@
+<?php
+include('login.php'); // Includes Login Script
+
+if(isset($_SESSION['login_user'])){
+header("location: /registered_user/welcome.php");
+}
+?>
+
 <!DOCTYPE html>
 <html dir="rtl" lang="he" xml:lang="he">
 <head>
@@ -32,11 +40,12 @@
                 </div>
                 <div class="form__input-group">
                   <label for="pass">סיסמא: </label>
-                  <input type="password" class="inputlog" name="pass" id="pass" maxlength="20" required> 
+                  <input type="password" class="inputlog" name="password" id="pass" maxlength="20" required> 
                 </div>
                 <div class="form__input-group">
-                 <br> <button type="submit" class="buttonlog" onclick="func()">כניסה</button>
+                 <br> <button type="submit" class="buttonlog" name="submit">כניסה</button> 
                 </div>
+                <span><?php echo $error; ?></span>
              </form>
             </div>
                     
