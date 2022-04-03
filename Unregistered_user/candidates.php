@@ -40,7 +40,7 @@ if(isset($_POST['Lactose'])){
 else{
     $Lactose= '';
 }
-if(isset($_POST['other']) && isset($_POST['other_allergy']){
+if(isset($_POST['other']) && isset($_POST['other_allergy'])){
     $other=$_POST['other_allergy'];
 }
 else{
@@ -58,10 +58,8 @@ $sql= "INSERT INTO `Candidates` (`Id`, `name`, `lastName`, `mail`, `weight`, `bm
     $res = $conn->query($sql);
 
         if ($res == TRUE) {
-            echo "Record updated successfully. <a  href='../index.html' >press here</a> to return to Home Page";
+            echo "Record updated successfully. <a  href='../index.html' >press here</a> to return to Home Page"; //לשנות
         } else {
             echo "Error updating record: " . $conn->error;
         }
-}
-
 ?>
