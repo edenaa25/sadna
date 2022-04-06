@@ -46,7 +46,7 @@ header("location: /registered_user/welcome.php");
                  <br> <button type="submit" class="buttonlog" name="submit">כניסה</button> 
                 </div>
                 <span><?php echo $error; ?></span>
-             </form>
+             </form> 
             </div>
                     
         </div>
@@ -109,7 +109,7 @@ header("location: /registered_user/welcome.php");
          )
 
     </script>
-    <!-- <script>
+  <!-- <script>
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -121,6 +121,6 @@ header("location: /registered_user/welcome.php");
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
-    </script> -->
+    </script>  -->
 </body>
 </html>

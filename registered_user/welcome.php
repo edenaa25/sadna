@@ -1,5 +1,6 @@
 <?php 
- include('seassion.php');
+ include('seassion.php'); 
+ echo $_SESSION['login_user'];
 
 ?>
 

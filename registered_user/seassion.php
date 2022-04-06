@@ -14,15 +14,18 @@ $db = mysqli_select_db($connection, "edenaais_sadna");
 session_start();// Starting Session
 // Storing Session
 $user_check=$_SESSION['login_user'];
-
+//echo $rows1 ."<br>". $rows2;
 // SQL Query To Fetch Complete Information Of User
-$ses_sql=mysqli_query($connection, "select user_name from users where user_name='".$user_check."'");
-$row = mysqli_fetch_assoc($ses_sql);
-$login_session =$row['user_name'];
+$ses_sql1=mysqli_query($connection, "select user_name from users where user_name='".$user_check."'");
+$row1 = mysqli_fetch_assoc($ses_sql1);
+$ses_sql2=mysqli_query($connection, "select user_name from Employees where user_name='".$user_check."'");
+$row2 = mysqli_fetch_assoc($ses_sql2);
+$login_session1 =$row1['user_name'];
+$login_session2 =$row2['user_name'];
 
-if(!isset($login_session)){
-mysqli_close($connection); // Closing Connection
-echo "close connection from seassion.php page";
-header('Location: '); // Redirecting To Home Page
+if(!isset($login_session1) && !isset($login_session1)){
+    mysqli_close($connection); // Closing Connection
+    echo "close connection from seassion.php page ";
+    header('Location: ../index.php'); // Redirecting To Home Page
 }
 ?>
