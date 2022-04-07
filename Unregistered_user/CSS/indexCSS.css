@@ -39,7 +39,7 @@ button.ghost {
 
 .formlog {
 	background-color: #FFFFFF;
-	display: flex;
+	display: flex; 
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
@@ -47,8 +47,8 @@ button.ghost {
 	height: 100%;
 	text-align: center;
     margin: auto;
-    margin-top: 5%;
-	margin-bottom: 5%;
+    margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 .inputlog {
@@ -154,7 +154,7 @@ button.ghost {
 
 .button2{
 	background-color: #6b8e23;
-	margin-top: 5%;
+	margin-top: 3%;
 	font-size:x-large;
 }
 

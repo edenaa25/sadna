@@ -18,14 +18,13 @@ $user_check=$_SESSION['login_user'];
 // SQL Query To Fetch Complete Information Of User
 $ses_sql1=mysqli_query($connection, "select user_name from users where user_name='".$user_check."'");
 $row1 = mysqli_fetch_assoc($ses_sql1);
-$ses_sql2=mysqli_query($connection, "select user_name from Employees where user_name='".$user_check."'");
-$row2 = mysqli_fetch_assoc($ses_sql2);
 $login_session1 =$row1['user_name'];
-$login_session2 =$row2['user_name'];
 
-if(!isset($login_session1) && !isset($login_session1)){
+
+if(!isset($login_session1)){
     mysqli_close($connection); // Closing Connection
     echo "close connection from seassion.php page ";
     header('Location: ../index.php'); // Redirecting To Home Page
 }
+
 ?>
