@@ -25,5 +25,48 @@ if(!isset($login_session1)){
     echo "close connection from seassion.php page ";
     header('Location: ../index.php'); // Redirecting To Home Page
 }
+else{
+    $ses_sql1=mysqli_query($connection, "select id_coach from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $id_coach = $row1['id_coach'];
+    $_SESSION['id_coach']= $id_coach;
+    echo $_SESSION['id_coach'];
 
+    $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $id_nutri = $row1['id_nutri'];
+    $_SESSION['id_nutri']=  $id_nutri;
+    echo $_SESSION['id_nutri'];
+
+    $ses_sql1=mysqli_query($connection, "select BMI_start from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $BMI_start = $row1['BMI_start'];
+    $_SESSION['BMI_start']=  $BMI_start;
+    echo $_SESSION['BMI_start'];
+
+    $ses_sql1=mysqli_query($connection, "select BMI_curr from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $BMI_curr = $row1['BMI_curr'];
+    $_SESSION['BMI_curr']=  $BMI_curr;
+    echo $_SESSION['BMI_curr'];
+
+    $ses_sql1=mysqli_query($connection, "select menu from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $menu = $row1['menu'];
+    $_SESSION['menu']=  $menu;
+    echo $_SESSION['menu'];
+
+    $ses_sql1=mysqli_query($connection, "select first_name from users where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $first_name = $row1['first_name'];
+    $_SESSION['first_name']=  $first_name;
+    echo $_SESSION['$first_name'];
+
+    $ses_sql1=mysqli_query($connection, "select last_name from users where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $last_name = $row1['last_name'];
+    $_SESSION['last_name']=  $last_name;
+    echo $_SESSION['$last_name'];
+
+}
 ?>
