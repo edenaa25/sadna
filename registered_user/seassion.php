@@ -20,7 +20,6 @@ $ses_sql1=mysqli_query($connection, "select user_name from users where user_name
 $row1 = mysqli_fetch_assoc($ses_sql1);
 $login_session1 =$row1['user_name'];
 
-
 if(!isset($login_session1)){
     mysqli_close($connection); // Closing Connection
     echo "close connection from seassion.php page ";
