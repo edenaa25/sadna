@@ -34,9 +34,5 @@ else{
             echo "Error updating record: " . $conn->error;
         }
 }
-<<<<<<< HEAD
-$conn->close();
-=======
-
->>>>>>> d2e78d81867ea117b5ccf6f0a0753a8111276f90
+    $conn->close();
 ?>

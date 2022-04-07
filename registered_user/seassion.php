@@ -11,7 +11,7 @@ if ($connection->connect_error) {
 }
 // Selecting Database
 $db = mysqli_select_db($connection, "edenaais_sadna");
-session_start();// Starting Session
+session_start();// Starting Session  // למה יש פה עוד התחלת סשן שכבר עשינו את זה בדף הלוגאין
 // Storing Session
 $user_check=$_SESSION['login_user'];
 //echo $rows1 ."<br>". $rows2;
