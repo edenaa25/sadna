@@ -29,9 +29,30 @@
     <div style="clear: both;"></div>
 
     <main>
-        <section id="sec1">
-            
+        <section class="sec1">
+            <p class="p1sec1"> eden שלום <?php echo $_SESSION['first_name']  ?> </p>
+            <p style="font-weight: bold;"> התזכורות שלך לשבוע: <br>
+            <?php echo $_SESSION['txt'] ?></p>
         </section>
+        <section class="sec1">
+            <p style="font-weight: bold;"> קצת נתונים על התהליך שלך: <br>
+                <table class="center">
+                <tr>
+                    <th>Starting weight</th>
+                    <th>Current weight</th>
+                    <th>Starting BMI</th>
+                    <th>Current BMI</th>
+                </tr>
+                <tr>
+                    <td> <?php  echo $_SESSION['first_weight'] ?></td>    
+                    <td> <?php  echo $_SESSION['last_weight']; ?></td>   
+                    <td> <?php echo $_SESSION['BMI_start'] ?></td>  
+                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
+                </tr>
+                </table>
+            </p>
+        </section>
+
     </main>
 
     <footer id="footer"></footer>

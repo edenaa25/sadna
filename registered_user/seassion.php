@@ -30,43 +30,61 @@ else{
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $id_coach = $row1['id_coach'];
     $_SESSION['id_coach']= $id_coach;
-    echo $_SESSION['id_coach'];
+    //echo $_SESSION['id_coach'];
 
     $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $id_nutri = $row1['id_nutri'];
     $_SESSION['id_nutri']=  $id_nutri;
-    echo $_SESSION['id_nutri'];
+    //echo $_SESSION['id_nutri'];
 
     $ses_sql1=mysqli_query($connection, "select BMI_start from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $BMI_start = $row1['BMI_start'];
     $_SESSION['BMI_start']=  $BMI_start;
-    echo $_SESSION['BMI_start'];
+    //echo $_SESSION['BMI_start'];
 
     $ses_sql1=mysqli_query($connection, "select BMI_curr from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $BMI_curr = $row1['BMI_curr'];
     $_SESSION['BMI_curr']=  $BMI_curr;
-    echo $_SESSION['BMI_curr'];
+    //echo $_SESSION['BMI_curr'];
 
     $ses_sql1=mysqli_query($connection, "select menu from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $menu = $row1['menu'];
     $_SESSION['menu']=  $menu;
-    echo $_SESSION['menu'];
+    //echo $_SESSION['menu'];
+
+    $ses_sql1=mysqli_query($connection, "select txt from Treatments where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $txt = $row1['txt'];
+    $_SESSION['txt']=  $txt;
+    //echo $_SESSION['txt'];
 
     $ses_sql1=mysqli_query($connection, "select first_name from users where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $first_name = $row1['first_name'];
     $_SESSION['first_name']=  $first_name;
-    echo $_SESSION['$first_name'];
+    //echo $_SESSION['first_name'];
 
     $ses_sql1=mysqli_query($connection, "select last_name from users where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $last_name = $row1['last_name'];
     $_SESSION['last_name']=  $last_name;
-    echo $_SESSION['$last_name'];
+    //echo $_SESSION['last_name'];
+
+    $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date asc limit 1");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $first_weight = $row1['weight'];
+    $_SESSION['first_weight']=  $first_weight;
+    //echo $_SESSION['first_weight'];
+
+    $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date desc limit 1");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $last_weight = $row1['weight'];
+    $_SESSION['last_weight']=  $last_weight;
+    //echo $_SESSION['last_weight'];
 
 }
 ?>
