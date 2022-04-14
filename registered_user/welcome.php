@@ -30,12 +30,12 @@
 
     <main>
         <section class="sec1">
-            <p class="p1sec1"> eden שלום <?php echo $_SESSION['first_name']  ?> </p>
-            <p style="font-weight: bold;"> התזכורות שלך לשבוע: <br>
-            <?php echo $_SESSION['txt'] ?></p>
+            <h1 class="p1sec1"> eden שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h4> <span style="font-weight: bold;"> התזכורות שלך לשבוע: </span> <br> </h4>
+            <?php echo $_SESSION['txt'] ?>
         </section>
         <section class="sec1">
-            <p style="font-weight: bold;"> קצת נתונים על התהליך שלך: <br>
+            <h4 style="font-weight: bold;"> קצת נתונים על התהליך שלך: <br> </h4>
                 <table class="center">
                 <tr>
                     <th>Starting weight</th>
@@ -50,7 +50,23 @@
                     <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
                 </tr>
                 </table>
-            </p>
+            
+        </section>
+        <section class="sec1">
+            <h4 style="font-weight: bold;">לא לשכוח לעדכן:</h4>
+                <div class="bigdiv">
+                   <div> <button class="btn"> <img id="weight"  src="images/weight.png" alt="weight" > <br>
+                    <p style="font-weight: bold;">שקילה</p></div> </button>
+                    <form id="weightForm" action="#">
+                        <label for="date">:date</label><br>
+                        <input type="date" id="date" name="date" ><br><br>
+                        <label for="weight">:weight</label><br>
+                        <input type="number" id="weight" name="weight" ><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+                    </form> <br>
+                    <div> <button class="btn" onclick="window.location.href = '#';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
+                    <p style="font-weight: bold;">יומן אוכל</p> </button> </div> 
+                </div>
         </section>
 
     </main>
@@ -61,11 +77,19 @@
             function(){
               $("#header").load("/registered_user/navbar/navbar.html");
               $("#footer").load("/Unregistered_user/footer.html");
-
-              
-            }            
+              $("#weightForm").hide();
+              $("#weight").click(
+                  function () {
+                      $("#weightForm").toggle();
+                    })
+              $("#submit1")  .click(
+                  function(){
+                    $("#weightForm").hide(100);
+                  }
+              )    
+            }                                 
          )
-
     </script>
+    
 </body>
 </html>

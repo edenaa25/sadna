@@ -32,6 +32,17 @@ else{
     $_SESSION['id_coach']= $id_coach;
     //echo $_SESSION['id_coach'];
 
+    // $ses_sql1=mysqli_query($connection, "select * from Coaches where Id='".$id_coach."'");
+    // $row1 = mysqli_fetch_assoc($ses_sql1);
+    // $name_coach = $row1['name'];
+    // $_SESSION['name_coach']= $name_coach;
+    // $phone_coach = $row1['phone'];
+    // $_SESSION['phone_coach']= $phone_coach;
+    // $mail_coach = $row1['mail'];
+    // $_SESSION['mail_coach']= $mail_coach;
+    
+    //echo $_SESSION['id_coach'];
+
     $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
     $id_nutri = $row1['id_nutri'];

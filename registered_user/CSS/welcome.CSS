@@ -8,7 +8,6 @@
 
 .p1sec1{
     font-weight: bolder;
-    font-size: xx-large;
     color: green;
 }
 
@@ -19,4 +18,12 @@ table.center {
   table, th, td {
     border: 1px solid black;
     padding: 1%;
+  }
+
+  #weight{
+    width:250px;
+  }
+
+  .btn{
+    background-color:none;
   }
