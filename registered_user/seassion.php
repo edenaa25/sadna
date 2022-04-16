@@ -110,5 +110,12 @@ else{
     $_SESSION['last_weight']=  $last_weight;
     //echo $_SESSION['last_weight'];
 
+    // $ses_sql1=mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
+    // $row1 = mysqli_fetch_assoc($ses_sql1);
+    // $videos = $row1['id_video'];
+    // echo $videos;
+    //$_SESSION['last_weight']=  $last_weight;
+    //echo $_SESSION['last_weight'];
+
 }
 ?>
