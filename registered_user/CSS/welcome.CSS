@@ -18,6 +18,10 @@ table.center {
   table, th, td {
     border: 1px solid black;
     padding: 1%;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    
   }
 
   #weight{

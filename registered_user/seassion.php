@@ -32,16 +32,15 @@ else{
     $_SESSION['id_coach']= $id_coach;
     //echo $_SESSION['id_coach'];
 
-    // $ses_sql1=mysqli_query($connection, "select * from Coaches where Id='".$id_coach."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $name_coach = $row1['name'];
-    // $_SESSION['name_coach']= $name_coach;
-    // $phone_coach = $row1['phone'];
-    // $_SESSION['phone_coach']= $phone_coach;
-    // $mail_coach = $row1['mail'];
-    // $_SESSION['mail_coach']= $mail_coach;
-    
-    //echo $_SESSION['id_coach'];
+    $ses_sql1=mysqli_query($connection, "select * from Coaches where Id='".$id_coach."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $name_coach = $row1['name'];
+    $_SESSION['name_coach']= $name_coach;
+    $phone_coach = $row1['phone'];
+    $_SESSION['phone_coach']= $phone_coach;
+    $mail_coach = $row1['mail'];
+    $_SESSION['mail_coach']= $mail_coach;
+   
 
     $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
     $row1 = mysqli_fetch_assoc($ses_sql1);
@@ -84,6 +83,20 @@ else{
     $last_name = $row1['last_name'];
     $_SESSION['last_name']=  $last_name;
     //echo $_SESSION['last_name'];
+
+    $ses_sql1=mysqli_query($connection, "select * from users where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $address = $row1['address'];
+    $_SESSION['address']=  $address;
+    //echo $_SESSION['address'];
+    $phone = $row1['phone'];
+    $_SESSION['phone']=  $phone;
+    //echo $_SESSION['phone'];
+    $mail = $row1['mail'];
+    $_SESSION['mail']=  $mail;
+    //echo $_SESSION['mail'];
+
+    
 
     $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date asc limit 1");
     $row1 = mysqli_fetch_assoc($ses_sql1);

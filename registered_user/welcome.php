@@ -49,8 +49,7 @@
                     <td> <?php echo $_SESSION['BMI_start'] ?></td>  
                     <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
                 </tr>
-                </table>
-            
+                </table>            
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold;">לא לשכוח לעדכן:</h4>
@@ -67,6 +66,22 @@
                     <div> <button class="btn" onclick="window.location.href = '#';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
                     <p style="font-weight: bold;">יומן אוכל</p> </button> </div> 
                 </div>
+        </section>
+        <section class="sec1">
+            <h4 style="font-weight: bold;">פרטים אישיים:</h4>
+            <table class="center">
+                <tr>
+                    <th>כתובת</th>
+                    <th>פלאפון</th>
+                    <th>מייל</th>
+                </tr>
+                <tr>
+                    <td> <?php  echo $_SESSION['address'] ?></td>    
+                    <td> <?php  echo $_SESSION['phone']; ?></td>   
+                    <td> <?php echo $_SESSION['mail'] ?></td>                    
+                </tr>
+                </table>
+                <p>אם יש שינוי בפרטייך האישיים נא לעדכן במייל : <a href="mailto:somemail@gmail.com">mailto:somemail@gmail.com</a></p>
         </section>
 
     </main>
