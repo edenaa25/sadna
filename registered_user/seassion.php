@@ -94,9 +94,7 @@ else{
     //echo $_SESSION['phone'];
     $mail = $row1['mail'];
     $_SESSION['mail']=  $mail;
-    //echo $_SESSION['mail'];
-
-    
+    //echo $_SESSION['mail'];  
 
     $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date asc limit 1");
     $row1 = mysqli_fetch_assoc($ses_sql1);
@@ -110,12 +108,22 @@ else{
     $_SESSION['last_weight']=  $last_weight;
     //echo $_SESSION['last_weight'];
 
-    // $ses_sql1=mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $videos = $row1['id_video'];
-    // echo $videos;
-    //$_SESSION['last_weight']=  $last_weight;
-    //echo $_SESSION['last_weight'];
-
+     $ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
+     $index=0;
+     $user_videos_url=array();
+     while($row1=mysqli_fetch_array($ses_sql1)){
+         $user_video_id = $row1["id_video"];
+         //echo $user_videos[$index] ."<br />";
+         $ses_sql2= mysqli_query($connection, "select url from FitnessVideo where id_video='".$user_video_id."'");
+         $row2 = mysqli_fetch_assoc($ses_sql2);
+         $url= $row2['url'];
+         $user_videos_url[$index]= $url;
+         //echo $user_videos_url[$index] ."<br />";
+         $index= $index+1;    
+     }
+     $_SESSION['user_videos']=  $user_videos_url;
+    //  foreach($_SESSION['user_videos'] as $val){
+    //         echo $val."<br/>";
+    //     }
 }
-?>
+ ?>

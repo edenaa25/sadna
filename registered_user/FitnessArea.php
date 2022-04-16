@@ -42,7 +42,13 @@
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold;">סרטוני הכושר שלך לשבוע:</h4>
-            
+            <!-- <?php foreach($_SESSION['user_videos'] as $val){
+                 //echo $val."<br/>";
+                 //<iframe width="420" height="345" src="$val">
+                   // </iframe>
+                    
+                 //}
+           // ?> -->
         </section>
 
 
