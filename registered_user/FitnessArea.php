@@ -30,25 +30,42 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> eden שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
             <p>
                 המאמן אשר מוביל אותך בתהליך ההרזייה הינו <?php echo $_SESSION['name_coach']  ?>
             </p>
         </section>
         <section class="sec1">
-            <h4 style="font-weight: bold;">פרטי יצירת קשר עם המאמן שלך:</h4>
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם המאמן שלך:</h4>
             <p> מספר פלאפון: <?php echo $_SESSION['phone_coach']  ?> </p>
             <p>מייל אישי: <?php echo $_SESSION['mail_coach']  ?></p>
         </section>
         <section class="sec1">
-            <h4 style="font-weight: bold;">סרטוני הכושר שלך לשבוע:</h4>
-            <!-- <?php foreach($_SESSION['user_videos'] as $val){
-                 //echo $val."<br/>";
-                 //<iframe width="420" height="345" src="$val">
-                   // </iframe>
-                    
-                 //}
-           // ?> -->
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">סרטוני הכושר שלך לשבוע:</h4>
+            <div>
+                <p>אימון כוח:</p>
+                <iframe id="video1" width="560" height="315" src="<?php echo $_SESSION['user_videos'][0]; ?>"></iframe><br><br>
+                <button id="button" onclick="makeBig1()">Big</button>
+                <button id="button" onclick="makeSmall1()">Small</button>
+                <button id="button" onclick="makeNormal1()">Normal</button>
+                <br><br>
+            </div><br>
+            <div>
+                <p>אימון ארובי:</p>
+                <iframe id="video2" width="560" height="315" src="<?php echo $_SESSION['user_videos'][1]; ?>"></iframe><br><br>
+                <button id="button" onclick="makeBig2()">Big</button>
+                <button id="button" onclick="makeSmall2()">Small</button>
+                <button id="button" onclick="makeNormal2()">Normal</button>
+                <br><br>
+            </div><br>
+            <div>
+                <p>אימון פונקציונאלי:</p>
+                <iframe id="video3" width="560" height="315" src="<?php echo $_SESSION['user_videos'][2]; ?>"></iframe><br><br>
+                <button id="button" onclick="makeBig3()">Big</button>
+                <button id="button" onclick="makeSmall3()">Small</button>
+                <button id="button" onclick="makeNormal3()">Normal</button>
+                <br><br>
+            </div>
         </section>
 
 
@@ -63,6 +80,47 @@
               
             }                                 
          )
+    </script>
+    <script>
+        var myVideo = document.getElementById("video1"); 
+              
+              function makeBig1() { 
+                  myVideo.width = 650; 
+              } 
+              
+              function makeSmall1() { 
+                  myVideo.width = 350; 
+              } 
+              
+              function makeNormal1() { 
+                  myVideo.width = 440; 
+              } 
+        var myVideo2 = document.getElementById("video2"); 
+              
+              function makeBig2() { 
+                  myVideo2.width = 650; 
+              } 
+              
+              function makeSmall2() { 
+                  myVideo2.width = 350; 
+              } 
+              
+              function makeNormal2() { 
+                  myVideo2.width = 440; 
+              } 
+        var myVideo3 = document.getElementById("video3"); 
+              
+              function makeBig3() { 
+                  myVideo3.width = 650; 
+              } 
+              
+              function makeSmall3() { 
+                  myVideo3.width = 350; 
+              } 
+              
+              function makeNormal3() { 
+                  myVideo3.width = 440; 
+              } 
     </script>
     
 </body>

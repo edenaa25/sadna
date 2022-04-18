@@ -30,12 +30,12 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> eden שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
             <h4> <span style="font-weight: bold;"> התזכורות שלך לשבוע: </span> <br> </h4>
             <?php echo $_SESSION['txt'] ?>
         </section>
         <section class="sec1">
-            <h4 style="font-weight: bold;"> קצת נתונים על התהליך שלך: <br> </h4>
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;"> קצת נתונים על התהליך שלך: <br> </h4>
                 <table class="center">
                 <tr>
                     <th>Starting weight</th>
@@ -52,11 +52,11 @@
                 </table>            
         </section>
         <section class="sec1">
-            <h4 style="font-weight: bold;">לא לשכוח לעדכן:</h4>
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">לא לשכוח לעדכן:</h4>
                 <div class="bigdiv">
                    <div> <button class="btn"> <img id="weight"  src="images/weight.png" alt="weight" > <br>
                     <p style="font-weight: bold;">שקילה</p></div> </button>
-                    <form id="weightForm" action="#">
+                    <form id="weightForm" action="weightForm.php">
                         <label for="date">:date</label><br>
                         <input type="date" id="date" name="date" ><br><br>
                         <label for="weight">:weight</label><br>
@@ -68,7 +68,7 @@
                 </div>
         </section>
         <section class="sec1">
-            <h4 style="font-weight: bold;">פרטים אישיים:</h4>
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטים אישיים:</h4>
             <table class="center">
                 <tr>
                     <th>כתובת</th>
@@ -76,7 +76,7 @@
                     <th>מייל</th>
                 </tr>
                 <tr>
-                    <td> <?php  echo $_SESSION['address'] ?></td>    
+                    <td style="padding: 3%;"> <?php  echo $_SESSION['address'] ?></td>    
                     <td> <?php  echo $_SESSION['phone']; ?></td>   
                     <td> <?php echo $_SESSION['mail'] ?></td>                    
                 </tr>
