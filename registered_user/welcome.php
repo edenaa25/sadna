@@ -56,14 +56,14 @@
                 <div class="bigdiv">
                    <div> <button class="btn"> <img id="weight"  src="images/weight.png" alt="weight" > <br>
                     <p style="font-weight: bold;">שקילה</p></div> </button>
-                    <form id="weightForm" action="weightForm.php">
+                    <form id="weightForm" action="weightForm.php" method="post">
                         <label for="date">:date</label><br>
-                        <input type="date" id="date" name="date" ><br><br>
+                        <input type="date" id="date" name="date" required><br><br>
                         <label for="weight">:weight</label><br>
-                        <input type="number" id="weight" name="weight" ><br><br>
+                        <input type="number" id="weight" name="weight" required><br><br>
                         <input id="submit1" type="submit" value="עדכן">
                     </form> <br>
-                    <div> <button class="btn" onclick="window.location.href = '#';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
+                    <div> <button class="btn" onclick="window.location.href = 'FoodDiaryPage.php';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
                     <p style="font-weight: bold;">יומן אוכל</p> </button> </div> 
                 </div>
         </section>
