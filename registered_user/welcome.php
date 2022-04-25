@@ -56,13 +56,33 @@
                 <div class="bigdiv">
                    <div> <button class="btn"> <img id="weight"  src="images/weight.png" alt="weight" > <br>
                     <p style="font-weight: bold;">שקילה</p></div> </button>
-                    <form id="weightForm" action="weightForm.php" method="post">
+                    <form id="weightForm" action="#" method="post">
                         <label for="date">:date</label><br>
                         <input type="date" id="date" name="date" required><br><br>
                         <label for="weight">:weight</label><br>
                         <input type="number" id="weight" name="weight" required><br><br>
                         <input id="submit1" type="submit" value="עדכן">
-                    </form> <br>
+                    </form>
+                    <?php 
+                        include('seassion.php'); 
+                        //echo $_SESSION['login_user'];
+                     if(isset($_POST["weight"]) && isset($_POST["date"])){
+                        $curr_weight = $_POST["weight"];
+                        $date = $_POST["date"];
+                        $user=$_SESSION['login_user'];
+                        
+                        //$sql = " INSERT INTO weighs SET  weight = '".$curr_weight."',date = '".$date."', user_name = '".$user."'";
+                        $sql= "INSERT INTO `weighs` (`weight`, `date`, `user_name`) VALUES ('$curr_weight', '$date', '$user')";
+                        //יש הוספה של 3 שורות ריקות, לטפל בזה
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo "השקילה שלך עודכנה ";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                        ?> <br>
+                    <br>
                     <div> <button class="btn" onclick="window.location.href = 'FoodDiaryPage.php';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
                     <p style="font-weight: bold;">יומן אוכל</p> </button> </div> 
                 </div>
@@ -71,14 +91,14 @@
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטים אישיים:</h4>
             <table class="center">
                 <tr>
-                    <th>כתובת</th>
-                    <th>פלאפון</th>
-                    <th>מייל</th>
+                    <th style="padding: 5%;">כתובת</th>
+                    <th style="padding: 5%;">פלאפון</th>
+                    <th style="padding: 5%;">מייל</th>
                 </tr>
                 <tr>
-                    <td style="padding: 3%;"> <?php  echo $_SESSION['address'] ?></td>    
-                    <td> <?php  echo $_SESSION['phone']; ?></td>   
-                    <td> <?php echo $_SESSION['mail'] ?></td>                    
+                    <td style="padding: 5%;"> <?php  echo $_SESSION['address'] ?></td>    
+                    <td style="padding: 5%;"> 0<?php  echo $_SESSION['phone']; ?></td>   
+                    <td style="padding: 5%;"> <?php echo $_SESSION['mail'] ?></td>                    
                 </tr>
                 </table>
                 <p>אם יש שינוי בפרטייך האישיים נא לעדכן במייל : <a href="mailto:somemail@gmail.com">mailto:somemail@gmail.com</a></p>

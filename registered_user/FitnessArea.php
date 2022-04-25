@@ -37,7 +37,7 @@
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם המאמן שלך:</h4>
-            <p> מספר פלאפון: <?php echo $_SESSION['phone_coach']  ?> </p>
+            <p> מספר פלאפון: 0<?php echo $_SESSION['phone_coach']  ?> </p>
             <p>מייל אישי: <?php echo $_SESSION['mail_coach']  ?></p>
         </section>
         <section class="sec1">

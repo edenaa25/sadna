@@ -34,9 +34,11 @@
             <h4> <span style="font-weight: bold;">אז מה אכלת היום? </span> <br> </h4>
         </section>
 
-        <section class="sec1">
+        <section class="sec1 imgsec">
+        <p style="color: red; text-align: right; font-weight: bolder;">*אם דילגת על ארוחה ציין זאת</p>
+        <p style="color: red; text-align: right; font-weight: bolder;"> *יש למלא את כל תיבות הטקסט</p>
         <form id="weightForm" action="#" method="post">
-            <img src="images/foodDiary.webp" alt="Smiley face" style="float:left;width:40%;margin-top: 10%; margin-left: 1%;">
+            <img class="imgsec" src="images/foodDiary.webp" alt="Smiley face" style="float:left;width:40%;margin-top: 10%; margin-left: 1%;">
             <label for="date">הכנס תאריך עבור מילוי יומן האכילה שלך לאותו היום:</label>
             <input type="date" id="date" name="date">
             <table>                
@@ -46,7 +48,7 @@
                                 ארוחת בוקר </label>                           
                         </td>
                         <td><textarea id="Breakfast" name="Breakfast"
-                            rows="5" cols="33">
+                            rows="5" cols="33" required>
                             הקלד ארוחת בוקר</textarea>                          
                         </td>
                     </tr>
@@ -56,7 +58,7 @@
                             </label>
                         </td>
                         <td><textarea id="mid1" name="mid1"
-                            rows="5" cols="33">
+                            rows="5" cols="33" required>
                             הקלד ארוחת ביניים ראשונה להיום</textarea>
                         </td>
                     </tr>
@@ -66,17 +68,17 @@
                             </label>
                         </td>
                         <td><textarea id="lunch" name="lunch"
-                            rows="5" cols="33">
+                            rows="5" cols="33" required>
                             הקלד ארוחת צהריים</textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="Roll No.">
+                        <td><label for="mid2">
                                 ארוחת ביניים שנייה
                             </label>
                         </td>
-                        <td><textarea id="lunch" name="lunch"
-                            rows="5" cols="33">
+                        <td><textarea id="mid2" name="mid2"
+                            rows="5" cols="33" required>
                             הקלד ארוחת ביניים שניה להיום</textarea>
                         </td>
                     </tr>
@@ -86,13 +88,35 @@
                             </label>
                         </td>
                         <td><textarea id="dinner" name="dinner"
-                            rows="5" cols="33">
+                            rows="5" cols="33" required>
                             הקלד ארוחת ערב</textarea>
                         </td>
                     </tr>                   
             </table>
             <input style="background-color: #50C878; font-weight: bolder;" type="submit" value="עדכן יומן אכילה">
         </form>
+        <?php 
+        include('seassion.php'); 
+        //echo $_SESSION['login_user'];
+      if(isset($_POST["date"])&&$_POST["Breakfast"]&&$_POST["mid1"]&&$_POST["lunch"]&&$_POST["mid2"]&&$_POST["dinner"])  {   
+        $user=$_SESSION['login_user'];
+        $date = $_POST["date"];
+        $breakfast = $_POST["Breakfast"];
+        $mid1 = $_POST["mid1"];
+        $lunch = $_POST["lunch"];
+        $mid2 = $_POST["mid2"];
+        $dinner = $_POST["dinner"];
+        
+        $sql= "INSERT INTO `foodDiary` (`user_name`, `date`, `breakfast`, `mid1`, `lunch`, `mid2`, `dinner`) VALUES ('$user', '$date', '$breakfast', '$mid1', '$lunch', '$mid2', '$dinner')";
+
+        $res = $connection->query($sql);
+            if ($res === TRUE) {
+                echo "Record updated successfully. <a  href='welcome.php' >press here</a> to return to Home Page";//המעבר לדף אחר לא עובד
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+     }
+?>
         </section>
     </main>
 
@@ -106,6 +130,8 @@
             }                                 
          )
     </script>
+    
+    
     
 </body>
 </html>

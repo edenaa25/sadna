@@ -5,8 +5,20 @@
 	padding:1% 0 ;
     text-align: center;
     background-color: #EBF4FA;
+    
 
 }
+
+.imgsec{
+    /* background-image: url("/registered_user/images/foodDiary.webp");opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center; */
+    border-radius: 8px;
+    
+
+} 
 
 .p1sec1{
     font-weight: bolder;
