@@ -40,11 +40,11 @@
     </aside>
     <main class="main">
         <section class="left section">
-            <form action="contact.php" method="post">
+            <form action="#" method="post">
                 <h4><b>כתבו לנו</b></h4>
                 <p>לכל שאלה בכל נושא מוזמנים לכתוב לנו ונחזור אלייך במייל או בשיחה טלפונית </p>
                 <br>
-                <input class="half" type="text" id="name" name="name" maxlength="20" required placeholder="שם">
+                <input class="half" type="text" id="name" name="name" maxlength="20" required placeholder="שם מלא">
                 <input class="half" type="tel" id="tel" name="tel" placeholder="טלפון" required >
                 <input class="whole" type="email" id="email" name="email" placeholder="מייל" required>
                 <textarea class="whole" name="message" id="message" cols="5" rows="4" placeholder="הודעה" required></textarea>
@@ -53,6 +53,47 @@
                     <input class="button2" type="submit" value="שליחה">
                 </div>
             </form>
+            <?php
+                $server_name = "localhost";
+                $user_name = "edenaais_edena";
+                $password = "123456";
+                $database = "edenaais_sadna";
+
+                $conn = new mysqli($server_name, $user_name, $password, $database);
+                if ($conn->connect_error) {
+                    die("Error connecting: " . $conn->connect_error);
+                }
+                if(isset($_POST["name"]) && isset($_POST["tel"]) && isset($_POST["email"])){
+                        $name = $_POST["name"];
+                        $phone = $_POST["tel"];
+                        $mail = $_POST["email"];
+
+                        $dup= mysqli_query($conn, "select * from contact where phone='$phone' ");//בדיקת כפילויות לפי שם
+                        if(mysqli_num_rows($dup) >0 && $phone!=null){
+                            echo "<p style='color:red; background-color: #EBF4FA;'> you allready excist in our list, thank you <a  href='welcome.php' >press here</a> to return to Home Page </p>";
+                        }
+                        else{
+                            if (empty($_POST["message"])){
+                                $txt = "no massege";
+                            }
+                            else{
+                                $txt = $_POST["message"];
+                            }
+
+                            $sql= "INSERT IGNORE INTO `contact` (`name`, `phone`, `mail`, `txt`) VALUES ('$name', '$phone', '$maill', '$txt')";
+                            $res = $conn->query($sql);
+
+                                if ($res == TRUE) {
+                                    echo "<p style='color:red; background-color: #EBF4FA;'> ההודעה התקבלה בהצלחה! נחזור אלייך בהקדם </p>";
+                                }
+                                else {
+                                    echo "<p style='color:red; background-color: #EBF4FA;'> Error updating record: " . $conn->error; "</p>";
+                                }
+                        }
+                        $conn->close();
+                }
+            ?>
+<br>
         </section>
     </main>
     <div style="clear: both;"></div> 

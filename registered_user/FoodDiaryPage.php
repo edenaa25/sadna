@@ -22,7 +22,7 @@
             alert("not working");
         }
         </script>
-    <title>דף הבית</title>
+    <title>יומן אוכל יומי</title>
 </head>
 <body>
     <header id="header"></header>
