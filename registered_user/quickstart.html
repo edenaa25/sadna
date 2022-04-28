@@ -22,6 +22,8 @@
     <div style="clear: both;"></div>
 
     <h1 id="h1">תזכורות מהיומן של גוגל שלך</h1>
+    <img src="/registered_user/images/calendar.png" style="display: block;margin-left: auto;margin-right: auto;">
+    <div style="clear: both;"></div>
     <section id="sec1">
         <h4 style="font-weight: bolder;">בדף זה תוכל לראות את כל הארועים שלך אשר נמצאים אצלך ביומן של גוגל</h4>
         <p>אנו ממליצים לך לעדכן אצלך ביומן ארועים חשובים לתהליך כמו: <br>
@@ -30,9 +32,10 @@
         - הזנת יומן אכילה יומי</p>
     </section>
 <section id="sec1">
+    <p style="color: red;">*הצגת הארועים תומכת בשפה האנגלית בלבד</p>
     <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">התחברות ליומן</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+    <button id="authorize_button" style="display: none; margin: auto;">התחברות ליומן</button>
+    <button id="signout_button" style="display: none; margin: auto;" >Sign Out</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -87,7 +90,7 @@
        */
       function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
-          authorizeButton.style.display = 'none';
+          authorizeButton.style.display = 'none';//מעלים את הכפתור
           signoutButton.style.display = 'block';
           listUpcomingEvents();
         } else {
@@ -108,6 +111,7 @@
        */
       function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
+        
       }
 
       /**
@@ -159,10 +163,51 @@
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-
-    
+    </script>   
+     
 </section>
+<section id="sec1">
+    <p> להוספה ומחיקת ארועים מהיומן שלך לחץ על הקישור הבא:</p>
+    <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">My Google Calendar</a>
+</section>
+
+<!-- <script src="https://apis.google.com/js/api.js"></script>
+<script>
+  /**
+   * Sample JavaScript code for calendar.calendars.get
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/code-samples#javascript
+   */
+
+  function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.readonly"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyDKVtfgAYtCB_zwmVEImvIUAAAVrKLGSL8");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.calendar.calendars.get({})
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "311907961848-vq6m25iu7jo8u1anb6cd295o7kra54dn.apps.googleusercontent.com"});
+  });
+</script>
+<button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button> -->
+
+
 <footer id="footer"></footer>
 <script>
     $(document).ready(
@@ -177,7 +222,7 @@
           
         }                                 
      )
-</script>
+</script> 
 
   </body>
 </html>
