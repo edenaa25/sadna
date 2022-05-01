@@ -3,7 +3,7 @@ session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
-        $error = "Username or Password is invalid -1";
+        $error = "Username or Password is invalid";
     }
     else
     {
@@ -25,27 +25,46 @@ if (isset($_POST['submit'])) {
         //$password = stripslashes($password);
         //$username = mysql_real_escape_string($username);
         //$password = mysql_real_escape_string($password);
-        echo $username." , ".$pass;
+        //echo $username." , ".$pass;
         // Selecting Database
         $db = mysqli_select_db($connection,"edenaais_sadna");
         // SQL query to fetch information of registerd users and finds user match.
         $query1 = mysqli_query($connection, "select * from users where password='".$pass."' AND user_name='".$username."'");
+        $query2 = mysqli_query($connection, "select * from Nutritionists where password='".$pass."' AND user_name='".$username."'");
+        $query3 = mysqli_query($connection, "select * from Coaches where password='".$pass."' AND user_name='".$username."'");
+        $query4 = mysqli_query($connection, "select * from Administration where password='".$pass."' AND user_name='".$username."'");
+
         //$query2 = mysqli_query($connection, "select * from Employees where password='".$pass."' AND user_name='".$username."'");
         $rows1 = mysqli_num_rows($query1);
+        $rows2 = mysqli_num_rows($query2);
+        $rows3 = mysqli_num_rows($query3);
+        $rows4 = mysqli_num_rows($query4);
+
         //$rows2 = mysqli_num_rows($query2);
         //echo $rows1 ."<br>". $rows2;
         if ($rows1 == 1) {
             $_SESSION['login_user']=$username; // Initializing Session
-            header("location: /registered_user/welcome.php"); // Redirecting To Other Page
+            header("location: /registered_user/welcome.php"); // Redirecting To Other Page for client
        }
-        // elseif ($rows2==1){
-        //     $_SESSION['login_user']=$username; // Initializing Session
-        //     echo "rows2==1";
-        //    header("location: /registered_user/welcome.php"); // לשלוח לאזור עובדים 
-        // }
+       elseif($rows2==1){
+            $_SESSION['login_user']=$username; // Initializing Session
+            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
+       }
+       elseif($rows3==1){
+            $_SESSION['login_user']=$username; // Initializing Session
+            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
+       }
+       elseif($rows4==1){
+            $_SESSION['login_user']=$username; // Initializing Session
+            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
+       }
         else{
-        $error = "Username or Password is invalid from login.php page";
+            $error = "Username or Password is invalid from login.php page";
         }
+        
+        // setcookie("username", "John Carter", time()+30*24*60*60);
+        // echo $_COOKIE["username"];
+        // setcookie("username", "", time()-3600);
         mysqli_close($connection); // Closing Connection    
         }
 }

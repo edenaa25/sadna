@@ -28,7 +28,7 @@
     <div style="clear: both;"></div>
     <main class="main">
         <section class="sec1">
-            <h1> שלום <?php echo $_SESSION['first_name'] ?> </h1> <br>
+            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name'] ?> </h1> <br>
             <h4> בחלק זה תוכלו לראות את התקדמותכם, את התפריט שהתזונאי שלכם בנה לכם וגם תוכלו להזין את הנתונים שלכם 
                 אודות יומן האוכל והשקילה היומית שלכם
             </h4>
@@ -95,7 +95,7 @@
     <script>
         $(document).ready(
             function(){
-              $("#header").load("/Unregistered_user/navbar/navbar.html");
+                $("#header").load("/registered_user/navbar/navbar.html");
               $("#footer").load("/Unregistered_user/footer.html");
               $("#weightForm").hide();
               $("#weight").click(
@@ -111,6 +111,7 @@
          )
 
     </script>
+    
     
 </body>
 </html>
