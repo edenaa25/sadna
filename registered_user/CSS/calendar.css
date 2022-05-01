@@ -1,0 +1,21 @@
+#h1{
+    text-align: center;
+    color: cadetblue;
+    font-weight: bolder;
+}
+
+#sec1{
+    width: 100%;
+    border: 2px solid black; 
+    margin-top: 1%;
+	padding:1% 0 ;
+    text-align: center;
+    background-color: #EBF4FA;   
+    font-weight: bolder;
+
+}
+
+/* .btn{
+    text-align: center;
+    margin-right: 1%;
+} */

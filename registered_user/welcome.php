@@ -22,7 +22,7 @@
             alert("not working");
         }
         </script>
-    <title>דף הבית</title>
+    <title>דף כניסה</title>
 </head>
 <body>
     <header id="header"></header>
