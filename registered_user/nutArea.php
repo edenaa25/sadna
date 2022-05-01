@@ -48,7 +48,7 @@
             <h4>
                 מילוי של יומן האוכל בצורה עקבית ויומיומים חשוב מאוד לתהליך ויעזור לתזונאי שלך
                 להגדיר ולשנות בשבילך את התפריט לפי מידת הצורך ולהגדיר לך יעדים! <br> <br>
-                למילוי של יומן האוכל: <br>
+                למילוי יומן אוכל ושקילה יומית: <br>
                 <div class="bigDiv">
                     <div class="div1"> <button class="btn" onclick="window.location.href = 'FoodDiaryPage.php';"><img id="diary" src="images/diary.png" alt="diary" >   <!-- לשלוח לדף אחר  -->
                     <p style="font-weight: bold;">יומן אוכל</p> </button> </div>
