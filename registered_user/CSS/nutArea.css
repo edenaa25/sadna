@@ -1,0 +1,37 @@
+h1{
+    text-align: center;
+    padding-top: 2%;
+}
+.sec1{
+    width: 100%;
+    border: 2px solid black; 
+    margin-top: 1%;
+    padding:1% 0 ;
+    text-align: center;
+    background-color: #EBF4FA;
+}
+h4{
+    width: 64%;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+.main{
+    text-align: right;
+}
+.img{
+    height: 1000px;
+    width: 60%;
+}
+.div1{
+    text-align: center;
+ 
+    
+}
+.bigDiv{
+    width: 49%;
+    float: left;
+}
+#weight{
+    width:250px;
+  }
