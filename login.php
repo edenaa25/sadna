@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         //echo $username." , ".$pass;
         // Selecting Database
         $db = mysqli_select_db($connection,"edenaais_sadna");
-        // SQL query to fetch information of registerd users and finds user match.
+        // SQL query to fetch information of registerd users and finds user match (client or employee).
         $query1 = mysqli_query($connection, "select * from users where password='".$pass."' AND user_name='".$username."'");
         $query2 = mysqli_query($connection, "select * from Nutritionists where password='".$pass."' AND user_name='".$username."'");
         $query3 = mysqli_query($connection, "select * from Coaches where password='".$pass."' AND user_name='".$username."'");
@@ -46,15 +46,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['login_user']=$username; // Initializing Session
             header("location: /registered_user/welcome.php"); // Redirecting To Other Page for client
        }
-       elseif($rows2==1){
-            $_SESSION['login_user']=$username; // Initializing Session
-            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
-       }
-       elseif($rows3==1){
-            $_SESSION['login_user']=$username; // Initializing Session
-            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
-       }
-       elseif($rows4==1){
+       elseif($rows2==1 || $rows3==1 || $rows4==1 ){
             $_SESSION['login_user']=$username; // Initializing Session
             header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
        }
