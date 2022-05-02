@@ -1,3 +1,4 @@
+<!-- הבעיה בדף הזה- חוזר לדף אינקס מאחר ונכנס ל IF  -->
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
 $server_name = "localhost";
@@ -12,24 +13,25 @@ if ($connection->connect_error) {
 // Selecting Database
 
     $db = mysqli_select_db($connection, "edenaais_sadna");
-    // session_start();// Starting Session  // למה יש פה עוד התחלת סשן שכבר עשינו את זה בדף הלוגאין
+    session_start();// Starting Session  // למה יש פה עוד התחלת סשן שכבר עשינו את זה בדף הלוגאין
 
 // Storing Session
-    // $user_check=$_SESSION['login_user'];
+     $user_check=$_SESSION['login_user'];
 //echo $rows1 ."<br>". $rows2;
 // SQL Query To Fetch Complete Information Of User
-//$ses_sql1=mysqli_query($connection, "select user_name from users where user_name='".$user_check."'");
+    $ses_sql1=mysqli_query($connection, "SELECT user_name FROM `Administration` WHERE user_name='".$user_check."' UNION SELECT user_name FROM `Coaches` WHERE user_name='".$user_check."' UNION SELECT user_name FROM `Nutritionists` WHERE user_name='".$user_check."'");
     // $ses_sql1=mysqli_query($connection, "SELECT user_name from `Administration` where user_name='".$user_check."' UNION SELECT user_name from `Coaches` where user_name='".$user_check."' UNION SELECT user_name from `Nutritionists` where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $login_session1 =$row1['user_name'];
+    //$row1 = mysqli_fetch_assoc($ses_sql1);
+    $row1 = mysql_fetch_array($ses_sql1)
+    $login_session1 =$row1['user_name'];
 
-if(!isset($_SESSION['login_user'])){
+if(!isset($login_session1)){
     mysqli_close($connection); // Closing Connection
     echo "close connection from seassion_user.php page ";
     header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
-    echo "good seassion user"
+    echo "good seassion user";
     // $ses_sql1=mysqli_query($connection, "select id_coach from Treatments where user_name='".$user_check."'");
     // $row1 = mysqli_fetch_assoc($ses_sql1);
     // $id_coach = $row1['id_coach'];
@@ -151,6 +153,5 @@ else{
     // //     }
 
     // //php for weight forms:
-
 }
  ?>

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Starting Session
+//session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
@@ -34,29 +34,28 @@ if (isset($_POST['submit'])) {
         $query3 = mysqli_query($connection, "select * from Coaches where password='".$pass."' AND user_name='".$username."'");
         $query4 = mysqli_query($connection, "select * from Administration where password='".$pass."' AND user_name='".$username."'");
 
-        //$query2 = mysqli_query($connection, "select * from Employees where password='".$pass."' AND user_name='".$username."'");
         $rows1 = mysqli_num_rows($query1);
         $rows2 = mysqli_num_rows($query2);
         $rows3 = mysqli_num_rows($query3);
         $rows4 = mysqli_num_rows($query4);
 
-        //$rows2 = mysqli_num_rows($query2);
-        //echo $rows1 ."<br>". $rows2;
+        //echo $rows1 ."<br>". $rows2 ."<br>". $rows3 ."<br>". $rows4;
         if ($rows1 == 1) {
+            session_start();
             $_SESSION['login_user']=$username; // Initializing Session
             header("location: /registered_user/welcome.php"); // Redirecting To Other Page for client
        }
-       elseif($rows2==1 || $rows3==1 || $rows4==1 ){
+       elseif($rows2==1 || $rows3==1 || $rows4==1){
+            session_start();
             $_SESSION['login_user']=$username; // Initializing Session
-            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee
+            //echo "good employee";
+            //echo $_SESSION['login_user'];
+            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee          
        }
         else{
-            $error = "Username or Password is invalid from login.php page";
+            $error = "Username or Password is invalid, Please try again";
         }
         
-        // setcookie("username", "John Carter", time()+30*24*60*60);
-        // echo $_COOKIE["username"];
-        // setcookie("username", "", time()-3600);
         mysqli_close($connection); // Closing Connection    
         }
 }
