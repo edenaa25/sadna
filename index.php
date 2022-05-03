@@ -1,9 +1,9 @@
 <?php
 include('login.php'); // Includes Login Script
 
-if(isset($_SESSION['login_user'])){
-header("location: /registered_user/welcome.php");
-}
+// if(isset($_SESSION['login_user'])){
+// //header("location: /registered_user/welcome.php");
+// }
 ?>
 
 <!DOCTYPE html>

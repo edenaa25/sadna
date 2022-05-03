@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
         $rows3 = mysqli_num_rows($query3);
         $rows4 = mysqli_num_rows($query4);
 
-        //echo $rows1 ."<br>". $rows2 ."<br>". $rows3 ."<br>". $rows4;
+        echo $rows1 ."<br>". $rows2 ."<br>". $rows3 ."<br>". $rows4;
         if ($rows1 == 1) {
             session_start();
             $_SESSION['login_user']=$username; // Initializing Session
@@ -48,15 +48,13 @@ if (isset($_POST['submit'])) {
        elseif($rows2==1 || $rows3==1 || $rows4==1){
             session_start();
             $_SESSION['login_user']=$username; // Initializing Session
-            //echo "good employee";
-            //echo $_SESSION['login_user'];
-            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee          
+            header("location: /employee_user/welcome.php"); // Redirecting To Other Page for employee         
        }
         else{
             $error = "Username or Password is invalid, Please try again";
         }
         
         mysqli_close($connection); // Closing Connection    
-        }
+    }
 }
 ?>

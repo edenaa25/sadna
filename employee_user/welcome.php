@@ -1,7 +1,6 @@
 <?php 
  include('seassion_user.php'); 
  echo $_SESSION['login_user'];
-
 ?>
 
 
@@ -23,7 +22,7 @@
             alert("not working");
         }
         </script>
-    <title>דף כניסה</title>
+    <title> עובד דף כניסה</title>
 </head>
 <body>
     <header id="header"></header>
@@ -53,11 +52,11 @@
                     <th>password</th>
                 </tr>
                 <tr>
-                    <td> <?php  echo $_SESSION['first_weight'] ?></td>    
-                    <td> <?php  echo $_SESSION['last_weight']; ?></td>   
-                    <td> <?php echo $_SESSION['BMI_start'] ?></td>  
-                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>  
-                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                                    
+                    <!-- <td> <?php  echo $_SESSION['first_weight'] ?></td>     -->
+                    <td>  </td>   
+                    <td> </td>  
+                    <td> </td>  
+                    <td> </td>                                    
                 </tr>
                 </table>   
                 <p>אם יש שינוי בפרטייך האישיים או ברצונך לשנות שם משתמש/סיסמא נא לעדכן במייל : <a href="mailto:somemail@gmail.com">mailto:somemail@gmail.com</a></p>

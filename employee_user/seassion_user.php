@@ -1,6 +1,7 @@
 <!-- הבעיה בדף הזה- חוזר לדף אינקס מאחר ונכנס ל IF  -->
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
+echo $_SESSION['login_user'];
 $server_name = "localhost";
 $user_name = "edenaais_edena";
 $password = "123456";
@@ -14,21 +15,27 @@ if ($connection->connect_error) {
 
     $db = mysqli_select_db($connection, "edenaais_sadna");
     session_start();// Starting Session  // למה יש פה עוד התחלת סשן שכבר עשינו את זה בדף הלוגאין
-
 // Storing Session
      $user_check=$_SESSION['login_user'];
 //echo $rows1 ."<br>". $rows2;
 // SQL Query To Fetch Complete Information Of User
-    $ses_sql1=mysqli_query($connection, "SELECT user_name FROM `Administration` WHERE user_name='".$user_check."' UNION SELECT user_name FROM `Coaches` WHERE user_name='".$user_check."' UNION SELECT user_name FROM `Nutritionists` WHERE user_name='".$user_check."'");
-    // $ses_sql1=mysqli_query($connection, "SELECT user_name from `Administration` where user_name='".$user_check."' UNION SELECT user_name from `Coaches` where user_name='".$user_check."' UNION SELECT user_name from `Nutritionists` where user_name='".$user_check."'");
-    //$row1 = mysqli_fetch_assoc($ses_sql1);
-    $row1 = mysql_fetch_array($ses_sql1)
-    $login_session1 =$row1['user_name'];
+    $ses_sql1=mysqli_query($connection, "SELECT * FROM `Administration` WHERE user_name='".$user_check."'"); 
+    $ses_sql2=mysqli_query($connection, "SELECT * FROM `Coaches` WHERE user_name='".$user_check."'"); 
+    $ses_sql3=mysqli_query($connection, "SELECT * FROM `Nutritionists` WHERE user_name='".$user_check."'"); 
 
-if(!isset($login_session1)){
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $row2 = mysqli_fetch_assoc($ses_sql2);
+    $row3 = mysqli_fetch_assoc($ses_sql3);
+    //$row1 = mysql_fetch_array($ses_sql1);
+    //echo $row1;
+    $login_session1 =$row1['user_name'];
+    $login_session2 =$row2['user_name'];
+    $login_session3 =$row3['user_name'];
+
+if(!isset($login_session1) && !isset($login_session2) && !isset($login_session3)){
     mysqli_close($connection); // Closing Connection
     echo "close connection from seassion_user.php page ";
-    header('Location: ../index.php'); // Redirecting To Home Page
+    //header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
     echo "good seassion user";
