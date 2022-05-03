@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
         $rows3 = mysqli_num_rows($query3);
         $rows4 = mysqli_num_rows($query4);
 
-        echo $rows1 ."<br>". $rows2 ."<br>". $rows3 ."<br>". $rows4;
+        //echo $rows1 ."<br>". $rows2 ."<br>". $rows3 ."<br>". $rows4;
         if ($rows1 == 1) {
             session_start();
             $_SESSION['login_user']=$username; // Initializing Session

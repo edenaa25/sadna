@@ -1,7 +1,7 @@
 <!-- הבעיה בדף הזה- חוזר לדף אינקס מאחר ונכנס ל IF  -->
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-echo $_SESSION['login_user'];
+//echo $_SESSION['login_user'];
 $server_name = "localhost";
 $user_name = "edenaais_edena";
 $password = "123456";
@@ -38,14 +38,50 @@ if(!isset($login_session1) && !isset($login_session2) && !isset($login_session3)
     //header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
-    echo "good seassion user";
-    // $ses_sql1=mysqli_query($connection, "select id_coach from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $id_coach = $row1['id_coach'];
-    // $_SESSION['id_coach']= $id_coach;
-    // //echo $_SESSION['id_coach'];
+    //echo "good seassion user";
+    $ses_sql1=mysqli_query($connection, "select * from Administration where user_name='".$user_check."'");
+    $ses_sql2=mysqli_query($connection, "select * from Coaches where user_name='".$user_check."'");
+    $ses_sql3=mysqli_query($connection, "select * from Nutritionists where user_name='".$user_check."'");
+    $row1 = mysqli_fetch_assoc($ses_sql1);
+    $row2 = mysqli_fetch_assoc($ses_sql2);
+    $row3 = mysqli_fetch_assoc($ses_sql3);
+    if($row1 > 0){
+        $_SESSION['employee_id']=$row1['Id'];
+        $_SESSION['password']=$row1['password'];
+        $_SESSION['name']=$row1['name'];
+        $_SESSION['address']=$row1['address'];
+        $_SESSION['phone']=$row1['phone'];
+        $_SESSION['mail']=$row1['mail'];
+        $_SESSION['birth']=$row1['birth'];
+        $_SESSION['employee_type']=$row1['type']; // nuthri=1, coaches=2, administration=3
+    }
+   if($row2 > 0){
+    $_SESSION['employee_id']=$row2['Id'];
+    $_SESSION['password']=$row2['password'];
+    $_SESSION['name']=$row2['name'];
+    $_SESSION['address']=$row2['address'];
+    $_SESSION['phone']=$row2['phone'];
+    $_SESSION['mail']=$row2['mail'];
+    $_SESSION['birth']=$row2['birth'];
+    $_SESSION['employee_type']=$row2['type']; // nuthri=1, coaches=2, administration=3
+   }
+   if($row3 > 0){
+    $_SESSION['employee_id']=$row3['Id'];
+    $_SESSION['password']=$row3['password'];
+    $_SESSION['name']=$row3['name'];
+    $_SESSION['address']=$row3['address'];
+    $_SESSION['phone']=$row3['phone'];
+    $_SESSION['mail']=$row3['mail'];
+    $_SESSION['birth']=$row3['birth'];
+    $_SESSION['employee_type']=$row3['type']; // nuthri=1, coaches=2, administration=3
+   } 
 
-    // $ses_sql1=mysqli_query($connection, "select * from Coaches where Id='".$id_coach."'");
+    if($_SESSION['employee_type']==2){
+        $ses_sql1=mysqli_query($connection, "select * from Treatments where id_coach='".$_SESSION['employee_id']."'");
+        $row1 = mysqli_fetch_assoc($ses_sql1);
+    }
+
+    // $ses_sql1=mysqli_query($connection, "select * from Treatments where Id='".$id_coach."'");
     // $row1 = mysqli_fetch_assoc($ses_sql1);
     // $name_coach = $row1['name'];
     // $_SESSION['name_coach']= $name_coach;

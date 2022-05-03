@@ -52,13 +52,15 @@
                     <th>password</th>
                 </tr>
                 <tr>
-                    <!-- <td> <?php  echo $_SESSION['first_weight'] ?></td>     -->
-                    <td>  </td>   
-                    <td> </td>  
-                    <td> </td>  
-                    <td> </td>                                    
+                    <td> <?php  echo $_SESSION['name'] ?></td>    
+                    <td> <?php  echo $_SESSION['birth'] ?> </td>   
+                    <td> <?php  echo $_SESSION['address'] ?> </td>  
+                    <td> <?php  echo $_SESSION['phone'] ?> </td>  
+                    <td> <?php  echo $_SESSION['mail'] ?> </td>
+                    <td> <?php  echo $_SESSION['login_user'] ?> </td>                                    
+                    <td> <?php  echo $_SESSION['password'] ?> </td>                                                                       
                 </tr>
-                </table>   
+            </table>   
                 <p>אם יש שינוי בפרטייך האישיים או ברצונך לשנות שם משתמש/סיסמא נא לעדכן במייל : <a href="mailto:somemail@gmail.com">mailto:somemail@gmail.com</a></p>
  
         </section>
