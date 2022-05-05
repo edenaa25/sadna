@@ -52,7 +52,7 @@
                     <th>password</th>
                 </tr>
                 <tr>
-                    <td> <?php  echo $_SESSION['name'] ?></td>    
+                    <td>  <?php  echo $_SESSION['name'] ?></td>    
                     <td> <?php  echo $_SESSION['birth'] ?> </td>   
                     <td> <?php  echo $_SESSION['address'] ?> </td>  
                     <td> <?php  echo $_SESSION['phone'] ?> </td>  
@@ -65,13 +65,15 @@
  
         </section>
         <section class="sec">
-            <h4>תהליכי הלקוחות שלך:</h4>
+            <h4>הלקוחות שלך:</h4>
             <table class="center">
-                <tr>
-                    <th>Starting weight</th>
-                    <th>Current weight</th>
-                    <th>Starting BMI</th>
-                    <th>Current BMI</th>
+                <!-- <tr>
+                    <th>user name</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
                 </tr>
                 <tr>
                     <td> <?php  echo $_SESSION['first_weight'] ?></td>    
@@ -79,8 +81,73 @@
                     <td> <?php echo $_SESSION['BMI_start'] ?></td>  
                     <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
                 </tr>
-                </table>      
+                </table>       -->
+                <tr>
+                    <th>user name</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
+                </tr>
 
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clinets_data']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clinets_data'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
+
+        </section>
+        <section class="sec">
+            <h4>נתוני תהליכי לקוחות:</h4>
+            <table class="center">
+                <!-- <tr>
+                    <th>user name</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
+                </tr>
+                <tr>
+                    <td> <?php  echo $_SESSION['first_weight'] ?></td>    
+                    <td> <?php  echo $_SESSION['last_weight']; ?></td>   
+                    <td> <?php echo $_SESSION['BMI_start'] ?></td>  
+                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
+                </tr>
+                </table>       -->
+                <tr>
+                    <th>User Name Client</th>
+                    <th>Nutritionist Id</th>
+                    <th>Coach Id</th>
+                    <th>Start BMI</th>
+                    <th>Current BMI</th>
+                    <th>Start Fat %</th>
+                    <th>Current Fat %</th>
+                </tr>
+
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clinets_threatments']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clinets_threatments'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
+
+        </section>
+        <section class="sec">
+            <h4>נתוני שקילות של כלל הלקוחות שלך:</h4>
+            
         </section>
     </main>
 

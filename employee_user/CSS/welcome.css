@@ -38,9 +38,11 @@
     background-color: #EBF4FA;
 }
 
-table.center {
+ .center {
     margin-left: auto; 
     margin-right: auto;
+    width: 80%;
+    /* border-collapse: collapse;  */
     
   }
   table, th, td {
@@ -48,9 +50,25 @@ table.center {
     padding: 5%;
     margin: auto;
     border-collapse: separate;
-    border-spacing: 50px 0;    
+    border-spacing: 50px 0;   
+    text-align: center; 
+  }
+  th{
+    font-size: larger;
   }
 
   tr:nth-child(even){background-color: #f2f2f2}
   tr{background-color: #50C878}
 
+  @media screen and (max-width: 580px){
+      table, th, td {
+        border: 1px solid black;
+        padding:1%;
+        margin: auto;
+        /* border-collapse: separate; */
+        border-spacing: 50px 0;   
+        text-align: center; 
+        border-collapse: collapse;
+        font-size: small;
+      }
+  }
