@@ -40,7 +40,7 @@
         </section>
         
         <section class="sec">
-            <h4>הלקוחות שלך:</h4>
+            <h4 style="font-weight:bolder;"> הלקוחות שלך ופרטייהם האישיים ליצירת קשר:</h4>
             <table class="center">
                 <tr>
                     <th>user name</th>
@@ -65,7 +65,7 @@
 
         </section>
         <section class="sec">
-            <h4>מאגר סרטוני כושר:</h4>
+            <h4 style="font-weight:bolder;">מאגר סרטוני כושר:</h4>
             <table class="center">
                 <tr>
                     <th>Video ID</th>
@@ -86,8 +86,104 @@
                 ?>
 
         </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;">הצגת סרטוני כושר שבועיים עבור לקוחותייך לפי מזהה סרטון:</h4>
+            <table class="center">
+                <tr>
+                    <th>:Client User Name</th>
+                    <th>:Video ID</th>
+                </tr>
 
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clients_video']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clients_video'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
 
+        </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;">הוספת סרטוני כושר למאגר:</h4>
+            <p> "הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה</p>
+            <form id="videoForm" action="#" method="post">
+                        <label for="url">: Video URL</label><br>
+                        <input type="text" id="url" name="url" required><br><br>
+                        <label for="type">: Type of training</label><br>
+                        <input type="text" id="type" name="type" required><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+            </form>
+            <?php 
+                        //include('seassion_user.php'); 
+                    if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==3){
+                        if(isset($_POST["url"]) && isset($_POST["type"])){
+                        $url = $_POST["url"];
+                        $type = $_POST["type"];                      
+                        $sql= "INSERT INTO `FitnessVideo` (`url`, `type`) VALUES ('$url', '$type')";
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo "הסרטון עודכן במאגר בהצלחה";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                    }
+                    else{
+                        echo "הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה";
+                    }
+                        ?> <br>
+  
+        </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;"> עדכון סרטוני כושר ללקוח:</h4>
+            <p>יש לעדכן שלושה סרטונים עבור לקוח</p>
+            <p>עדכון סרטון לפי מספר מזהה של סרטון הכושר</p>
+            <p>עדכון סרטוני כושר ללקוח אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה </p>
+            <form id="videoForm" action="#" method="post">
+                        <label for="user">:Client User Name</label><br>
+                        <input type="text" id="user" name="user" required><br><br>
+                        <label for="id">:ID Video 1</label><br>
+                        <input type="text" id="id" name="id" required><br><br>
+                        <label for="id2">:ID Video 2</label><br>
+                        <input type="text" id="id2" name="id2" required ><br><br>
+                        <label for="id3">:ID Video 3</label><br>
+                        <input type="text" id="id3" name="id3" required ><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+            </form>
+            <?php 
+                        //include('seassion_user.php'); 
+                    if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==3){
+                        if(isset($_POST["user"]) && isset($_POST["id"]) && isset($_POST["id2"]) && isset($_POST["id3"])){
+                        $user = $_POST["user"];
+                        $id = $_POST["id"]; 
+                        $id2 = $_POST["id2"];  
+                        $id3 = $_POST["id3"];  
+                        //מחיקת סרטונים קודמים עבור לקוח
+                        $sql1= "DELETE FROM `usersVideo` WHERE user_name='".$user."'";
+                        $res1 = $connection->query($sql1);
+                        $sql2= "INSERT INTO `usersVideo` (`user_name`, `id_video`) VALUES ('$user', '$id')";
+                        $res2 = $connection->query($sql2);
+                        $sql3= "INSERT INTO `usersVideo` (`user_name`, `id_video`) VALUES ('$user', '$id2')";
+                        $res3 = $connection->query($sql3);
+                        $sql4= "INSERT INTO `usersVideo` (`user_name`, `id_video`) VALUES ('$user', '$id3')";
+                        $res4 = $connection->query($sql4);
+                            if ($res1 === TRUE && $res2 === TRUE && $res3 === TRUE && $res4 === TRUE) {
+                                echo "הסרטונים עודכנו עבור הלקוח בהצלחה";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                    }
+                    else{
+                        echo "עדכון סרטוני כושר ללקוח אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה";
+                    }
+                        ?> <br>
+  
+        </section>
     </main>
 
     <footer id="footer"></footer>

@@ -226,15 +226,15 @@ else{
         }
         $_SESSION['videos']=$all_vid;// מאגר סרטוני כושר
 
-        echo "all videos:";
-        echo "<br>";
-        for($i = 0; $i < count($_SESSION['videos']); $i++) {
-            foreach($_SESSION['videos'][$i] as $value) {
-                echo $value . "<br>";
-        }
-        echo "}<br>";
-        }
-        //שמירת סרטונים עבור לקוח- להמשיך מפה
+        // echo "all videos:";
+        // echo "<br>";
+        // for($i = 0; $i < count($_SESSION['videos']); $i++) {
+        //     foreach($_SESSION['videos'][$i] as $value) {
+        //         echo $value . "<br>";
+        // }
+        // echo "}<br>";
+        // }
+        //שמירת סרטונים עבור לקוח
         $vid1=array();
         $all_vid=array();
         $ses_sql1= mysqli_query($connection, "select * from usersVideo");
@@ -246,14 +246,56 @@ else{
         }
         $_SESSION['clients_video']=$all_vid;
 
-        echo "clients videos:";
+        // echo "clients videos:";
+        // echo "<br>";
+        // for($i = 0; $i < count($_SESSION['clients_video']); $i++) {
+        //     foreach ($_SESSION['clients_video'][$i] as $value) {
+        //         echo $value . "<br>";
+        // }
+        // echo "}<br>";
+        // }
+//שמירת סרטונים עבור לקוח
+        $vid1=array();
+        $all_vid=array();
+        $ses_sql1= mysqli_query($connection, "select * from usersVideo");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($vid1, $row1["user_name"], $row1["id_video"]);
+            array_push($all_vid, $vid1);//add one client to arrey
+                unset($vid1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $vid1 = array(); // arrey is here again          
+        }
+        $_SESSION['clients_video']=$all_vid;
+
+        // echo "clients videos:";
+        // echo "<br>";
+        // for($i = 0; $i < count($_SESSION['clients_video']); $i++) {
+        //     foreach ($_SESSION['clients_video'][$i] as $value) {
+        //         echo $value . "<br>";
+        // }
+        // echo "}<br>";
+        // }
+
+        //שמירת הודעות של לקוחות עבור עובדי אדמיניסטרציה
+        $mess1=array();
+        $all_mess=array();
+        $ses_sql1= mysqli_query($connection, "select * from contact");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($mess1, $row1["name"], $row1["phone"], $row1["mail"], $row1["txt"]);
+            array_push($all_mess, $mess1);//add one client to arrey
+                unset($mess1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $mess1 = array(); // arrey is here again          
+        }
+        $_SESSION['clients_messages']=$all_mess;
+
+        echo "clients_messages:";
         echo "<br>";
-        for($i = 0; $i < count($_SESSION['clients_video']); $i++) {
-            foreach ($_SESSION['clients_video'][$i] as $value) {
+        for($i = 0; $i < count($_SESSION['clients_messages']); $i++) {
+            foreach ($_SESSION['clients_messages'][$i] as $value) {
                 echo $value . "<br>";
         }
         echo "}<br>";
         }
+
         // $client_vid=array();
         // foreach($_SESSION['clients'] as $val){
         //     //$user_name=$_SESSION['clinets_weights'][$i];
