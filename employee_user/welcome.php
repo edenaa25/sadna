@@ -67,21 +67,6 @@
         <section class="sec">
             <h4>הלקוחות שלך:</h4>
             <table class="center">
-                <!-- <tr>
-                    <th>user name</th>
-                    <th>first name</th>
-                    <th>last name</th>
-                    <th>address</th>
-                    <th>phone</th>
-                    <th>email</th>
-                </tr>
-                <tr>
-                    <td> <?php  echo $_SESSION['first_weight'] ?></td>    
-                    <td> <?php  echo $_SESSION['last_weight']; ?></td>   
-                    <td> <?php echo $_SESSION['BMI_start'] ?></td>  
-                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
-                </tr>
-                </table>       -->
                 <tr>
                     <th>user name</th>
                     <th>first name</th>
@@ -89,6 +74,8 @@
                     <th>address</th>
                     <th>phone</th>
                     <th>email</th>
+                    <th>Date of Birth</th>
+                    <th>Allergies</th>
                 </tr>
 
                 <?php
@@ -107,21 +94,7 @@
         <section class="sec">
             <h4>נתוני תהליכי לקוחות:</h4>
             <table class="center">
-                <!-- <tr>
-                    <th>user name</th>
-                    <th>first name</th>
-                    <th>last name</th>
-                    <th>address</th>
-                    <th>phone</th>
-                    <th>email</th>
-                </tr>
-                <tr>
-                    <td> <?php  echo $_SESSION['first_weight'] ?></td>    
-                    <td> <?php  echo $_SESSION['last_weight']; ?></td>   
-                    <td> <?php echo $_SESSION['BMI_start'] ?></td>  
-                    <td> <?php  echo $_SESSION['BMI_curr'] ?></td>                   
-                </tr>
-                </table>       -->
+               
                 <tr>
                     <th>User Name Client</th>
                     <th>Nutritionist Id</th>
@@ -147,6 +120,22 @@
         </section>
         <section class="sec">
             <h4>נתוני שקילות של כלל הלקוחות שלך:</h4>
+            <table class="center">
+               
+               <!-- <tr>
+                   <th>User Name Client</th>
+                   <th>Date</th>
+                   <th>Weight</th>
+               </tr> -->
+
+               <?php
+                  for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
+                    foreach($_SESSION['clinets_weights'][$i] as $value) {
+                        echo $value . "<br>";
+                }
+                echo "}<br>";
+                }
+               ?>
             
         </section>
     </main>

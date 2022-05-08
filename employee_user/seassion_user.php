@@ -92,7 +92,7 @@ else{
             array_push($clients, $row1["user_name"]);//מערך רק של שם משתמש של הלקוחות
             $ses_sql2=mysqli_query($connection, "select * from users where user_name='".$row1["user_name"]."'");
             while($row2=mysqli_fetch_array($ses_sql2,MYSQL_ASSOC)) {
-                array_push($client1_data, $row2["user_name"], $row2["first_name"],$row2["last_name"],$row2["address"],$row2["phone"],$row2["mail"]);
+                array_push($client1_data, $row2["user_name"], $row2["first_name"],$row2["last_name"],$row2["address"],$row2["phone"],$row2["mail"],$row2["birth"], $row2["Allergies"]);
            }
             array_push($clinets_data, $client1_data);//add one client to arrey
             unset($client1_data); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
@@ -162,7 +162,7 @@ else{
                 array_push($clients, $row1["user_name"]);//מערך רק של שם משתמש של הלקוחות
                 $ses_sql2=mysqli_query($connection, "select * from users where user_name='".$row1["user_name"]."'");
                 while($row2=mysqli_fetch_array($ses_sql2,MYSQL_ASSOC)) {
-                    array_push($client1_data, $row2["user_name"], $row2["first_name"],$row2["last_name"],$row2["address"],$row2["phone"],$row2["mail"]);
+                    array_push($client1_data, $row2["user_name"], $row2["first_name"],$row2["last_name"],$row2["address"],$row2["phone"],$row2["mail"],$row2["birth"], $row2["Allergies"]);
                }
                 array_push($clinets_data, $client1_data);//add one client to arrey
                 unset($client1_data); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
@@ -295,6 +295,29 @@ else{
         }
         echo "}<br>";
         }
+
+        
+        //שמירת פרטי לקוחות אשר יש להוסיף לטבלת משתמשים עבור עובדי אדמיניסטרציה
+        $client1=array();
+        $all_client=array();
+        $ses_sql1= mysqli_query($connection, "select * from Candidates");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($mess1, $row1["Id"], $row1["name"], $row1["lastName"], $row1["mail"]);
+            array_push($all_mess, $mess1);//add one client to arrey
+                unset($mess1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $mess1 = array(); // arrey is here again          
+        }
+        $_SESSION['clients_messages']=$all_mess;
+
+        echo "clients_messages:";
+        echo "<br>";
+        for($i = 0; $i < count($_SESSION['clients_messages']); $i++) {
+            foreach ($_SESSION['clients_messages'][$i] as $value) {
+                echo $value . "<br>";
+        }
+        echo "}<br>";
+        }
+
 
         // $client_vid=array();
         // foreach($_SESSION['clients'] as $val){

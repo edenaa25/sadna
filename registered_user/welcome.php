@@ -90,7 +90,7 @@
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטים אישיים:</h4>
             <table class="center">
-                <tr>
+                <!-- <tr>
                     <th style="padding: 5%;">כתובת</th>
                     <th style="padding: 5%;">פלאפון</th>
                     <th style="padding: 5%;">מייל</th>
@@ -100,7 +100,29 @@
                     <td style="padding: 5%;"> 0<?php  echo $_SESSION['phone']; ?></td>   
                     <td style="padding: 5%;"> <?php echo $_SESSION['mail'] ?></td>                    
                 </tr>
-                </table>
+                </table> -->
+                <tr>
+                    <th>user name</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>Date of Birth</th>
+                    <th>Allergies</th>
+                </tr>
+
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clinet_data']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clinet_data'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
                 <p>אם יש שינוי בפרטייך האישיים נא לעדכן במייל : <a href="mailto:somemail@gmail.com">mailto:somemail@gmail.com</a></p>
         </section>
 

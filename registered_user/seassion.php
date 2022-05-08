@@ -146,7 +146,21 @@ else{
     //         echo $val."<br/>";
     //     }
 
-    //php for weight forms:
+    $ses_sql1=mysqli_query($connection, "select * from users where user_name='".$user_check."'");
+    $clinets_data=array();//שמירת נתונים אישיים של מטופלים
+    $client1_data=array();//שמירת נתונים של מטופל אחד כדי להוסיף למערך הכולל
+    while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+        array_push($client1_data, $row1["user_name"], $row1["first_name"],$row1["last_name"],$row1["address"],$row1["phone"],$row1["mail"],$row1["birth"], $row1["Allergies"]);
+        array_push($clinets_data, $client1_data);//add one client to arrey
+        unset($client1_data); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+        $client1_data = array(); // arrey is here again
+    }
+    $_SESSION['clinet_data']=$clinets_data;
 
+    // for($i = 0; $i < count($_SESSION['clinet_data']); $i++) {
+    //     foreach($_SESSION['clinet_data'][$i] as $value) {
+    //         echo $value . "<br>";} }
+    //  echo "<br>";
 }
+
  ?>

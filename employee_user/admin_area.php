@@ -31,18 +31,17 @@
     <main>
         <section class="sec1 hero-image">
           <p class="hero-text">
-              מאמן יקר, <br>
-              בדף זה תוכל לצפות במאגר סרטוני כושר עבור הלקוחות <br>
-              ואילו סרטונים שבועיים עודכנו עבור לקוחותינו <br>
-              בנוסף, תוכל לעדכן סרטונים חדשים עבור הלקוחות ואף להוסיף סרטוני כושר למאגר <br>
+              עובד יקר, <br>
+              בדף זה תוכל לצפות במידע על כלל הלקוחות <br>
+              לצפות בהודעות אשר לקוחות פוטנציאליים השאירו בכדי שתוכל לחזור אליהם <br>
+                בנוסף, תוכל להוסיף לקוחות או עובדים חדשים אל מאגר הלקוחות שלנו בכדי שיוכלו להתחיל לעבוד באתר <br>
           </p> 
            
         </section>
         
         <section class="sec">
-            <h4 style="font-weight:bolder;"> הלקוחות שלך ופרטייהם האישיים ליצירת קשר:</h4>
-            <table class="center">
-                <tr>
+            <h4 style="font-weight:bolder;">פרטי כלל הלקוחות:</h4>
+            <tr>
                     <th>user name</th>
                     <th>first name</th>
                     <th>last name</th>
@@ -51,7 +50,7 @@
                     <th>email</th>
                     <th>Date of Birth</th>
                     <th>Allergies</th>
-                </tr>
+            </tr>
 
                 <?php
                    // echo "<table border =\"1\" style='border-collapse: collapse'>";
@@ -64,22 +63,44 @@
                                 }
                                 echo "</table>";
                 ?>
-
         </section>
         <section class="sec">
-            <h4 style="font-weight:bolder;">מאגר סרטוני כושר:</h4>
+            <h4 style="font-weight:bolder;">הודעות אשר לקוחות פוטנציאלים השאירו :</h4>
+            <p>יש לחזור אליהם בהודעה דרך המייל או מספר הפלאפון שהם השאירו  </p>
             <table class="center">
                 <tr>
-                    <th>Video ID</th>
-                    <th>URL</th>
-                    <th>Type of training</th>
+                    <th>name</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>message</th>
                 </tr>
 
                 <?php
                    // echo "<table border =\"1\" style='border-collapse: collapse'>";
-                        for ($row=0; $row < count($_SESSION['videos']); $row++) { 
+                        for ($row=0; $row < count($_SESSION['clients_messages']); $row++) { 
                             echo "<tr> \n";
-                            foreach($_SESSION['videos'][$row] as $value){ 
+                            foreach($_SESSION['clients_messages'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
+
+        </section>
+        <!-- <section class="sec">
+            <h4 style="font-weight:bolder;">הצגת סרטוני כושר שבועיים עבור לקוחותייך לפי מזהה סרטון:</h4>
+            <table class="center">
+                <tr>
+                    <th>:Client User Name</th>
+                    <th>:Video ID</th>
+                </tr>
+
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clients_video']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clients_video'][$row] as $value){ 
                                 echo "<td>$value</td> \n";
                                     }
                                     echo "</tr>";
@@ -160,11 +181,11 @@
                         }
                     }
                     else{
-                        echo "הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה";
+                        echo "עדכון סרטוני כושר ללקוח אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה";
                     }
                         ?> <br>
   
-        </section>
+        </section> -->
     </main>
 
     <footer id="footer"></footer>
