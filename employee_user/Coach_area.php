@@ -110,11 +110,12 @@
                                 echo "הסרטון עודכן במאגר בהצלחה";
                             } else {
                                 echo "Error updating record: " . $conn->error;
+                                // "<p style='color:red;'>This is a text in PHP echo.</p>"
                             }
                         }
                     }
                     else{
-                        echo "הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה";
+                        echo "<p style='color:red;'>הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה</p>";
                     }
                         ?> <br>
   

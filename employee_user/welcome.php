@@ -40,7 +40,7 @@
            
         </section>
         <section class="sec">
-            <h4>נתונייך האישיים:</h4>
+            <h4 style="font-weight:bolder;">נתונייך האישיים:</h4>
             <table class="center">
                 <tr>
                     <th>name</th>
@@ -65,7 +65,7 @@
  
         </section>
         <section class="sec">
-            <h4>הלקוחות שלך:</h4>
+            <h4 style="font-weight:bolder;">הלקוחות שלך:</h4>
             <table class="center">
                 <tr>
                     <th>user name</th>
@@ -92,7 +92,7 @@
 
         </section>
         <section class="sec">
-            <h4>נתוני תהליכי לקוחות:</h4>
+            <h4 style="font-weight:bolder;">נתוני תהליכי לקוחות:</h4>
             <table class="center">
                
                 <tr>
@@ -119,25 +119,28 @@
 
         </section>
         <section class="sec">
-            <h4>נתוני שקילות של כלל הלקוחות שלך:</h4>
-            <table class="center">
-               
-               <!-- <tr>
+            <h4 style="font-weight:bolder;">נתוני שקילות של כלל הלקוחות שלך:</h4>
+            <p>סדר הופעת השקילות לפי שם משתמש לקוח ותאריכי השקילה שלו</p>
+            <table class="center">             
+               <tr>
                    <th>User Name Client</th>
                    <th>Date</th>
                    <th>Weight</th>
-               </tr> -->
-
+               </tr>
                <?php
-                  for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
-                    foreach($_SESSION['clinets_weights'][$i] as $value) {
-                        echo $value . "<br>";
-                }
-                echo "}<br>";
-                }
-               ?>
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['clinets_weights']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['clinets_weights'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
             
         </section>
+
     </main>
 
     <footer id="footer"></footer>

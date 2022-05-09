@@ -97,14 +97,14 @@ else{
             array_push($clinets_data, $client1_data);//add one client to arrey
             unset($client1_data); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
             $client1_data = array(); // arrey is here again
-            $ses_sql3=mysqli_query($connection, "select * from weighs where user_name='".$row1["user_name"]."'");
+            $ses_sql3=mysqli_query($connection, "select * from weighs where user_name='".$row1["user_name"]."' order by date");
             while($row3=mysqli_fetch_array($ses_sql3,MYSQL_ASSOC)) {
                 array_push($client1_weights, $row3["user_name"], $row3["date"],$row3["weight"]);
+                array_push($clinets_weights, $client1_weights);//add one client to arrey
+                unset($client1_weights); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $client1_weights = array(); 
+                
            }
-           array_push($clinets_weights, $client1_weights);//add one client to arrey
-            unset($client1_weights); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-            $client1_weights = array(); // arrey is here again
-
             array_push($client1_threatment, $row1["user_name"],$row1["id_nutri"],$row1["id_coach"],$row1["BMI_start"],$row1["BMI_curr"],$row1["fatP_start"],$row1["fatP_curr"]);//מערך נתוני תהליכים של כלל הלקוחות
             array_push( $clinets_threatments, $client1_threatment);
             unset($client1_threatment); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
@@ -116,36 +116,36 @@ else{
             $_SESSION['clinets_threatments']=$clinets_threatments;// array for all alients threatments
             $_SESSION['clinets_weights']=$clinets_weights;// array for all weights of clients by order of client user_name
         //הדפסת מערכים ומערכים דו מיימדים
-                echo "clients user name:" ;
-                echo "<br>";
-                foreach($_SESSION['clients'] as $val){
-                echo $val."<br/>";
-                } 
-                echo "clients data:";
-                echo "<br>";
+                // echo "clients user name:" ;
+                // echo "<br>";
+                // foreach($_SESSION['clients'] as $val){
+                // echo $val."<br/>";
+                // } 
+                // echo "clients data:";
+                // echo "<br>";
                 
-                for($i = 0; $i < count($_SESSION['clinets_data']); $i++) {
-                    foreach($_SESSION['clinets_data'][$i] as $value) {
-                        echo $value . "<br>";} }
+                // for($i = 0; $i < count($_SESSION['clinets_data']); $i++) {
+                //     foreach($_SESSION['clinets_data'][$i] as $value) {
+                //         echo $value . "<br>";} }
                 
-                 echo "clients thretment by user name order:";
-                 echo "<br>";
+                //  echo "clients thretment by user name order:";
+                //  echo "<br>";
 
-                for($i = 0; $i < count($_SESSION['clinets_threatments']); $i++) {
-                    foreach($_SESSION['clinets_threatments'][$i] as $value) {
-                        echo $value . "<br>";
-                }
+                // for($i = 0; $i < count($_SESSION['clinets_threatments']); $i++) {
+                //     foreach($_SESSION['clinets_threatments'][$i] as $value) {
+                //         echo $value . "<br>";
+                // }
                 
-                }
-                echo "clients weight by user name order:";
-                echo "<br>";
+                // }
+                // echo "clients weight by user name order:";
+                // echo "<br>";
             
-                for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
-                    foreach($_SESSION['clinets_weights'][$i] as $value) {
-                        echo $value . "<br>";
-                }
-                echo "}<br>";
-                }
+                // for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
+                //     foreach($_SESSION['clinets_weights'][$i] as $value) {
+                //         echo $value . "<br>";
+                // }
+                // echo "}<br>";
+                // }
     }
 
 
@@ -170,11 +170,11 @@ else{
                 $ses_sql3=mysqli_query($connection, "select * from weighs where user_name='".$row1["user_name"]."'");
                 while($row3=mysqli_fetch_array($ses_sql3,MYSQL_ASSOC)) {
                     array_push($client1_weights, $row3["user_name"], $row3["date"],$row3["weight"]);
+                    array_push($clinets_weights, $client1_weights);//add one client to arrey
+                    unset($client1_weights); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                    $client1_weights = array(); // arrey is here again
                }
-               array_push($clinets_weights, $client1_weights);//add one client to arrey
-                unset($client1_weights); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-                $client1_weights = array(); // arrey is here again
-    
+              
                 array_push($client1_threatment, $row1["user_name"],$row1["id_nutri"],$row1["id_coach"],$row1["BMI_start"],$row1["BMI_curr"],$row1["fatP_start"],$row1["fatP_curr"]);//מערך נתוני תהליכים של כלל הלקוחות
                 array_push( $clinets_threatments, $client1_threatment);
                 unset($client1_threatment); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
@@ -299,24 +299,24 @@ else{
         
         //שמירת פרטי לקוחות אשר יש להוסיף לטבלת משתמשים עבור עובדי אדמיניסטרציה
         $client1=array();
-        $all_client=array();
+        $all_Candidates=array();
         $ses_sql1= mysqli_query($connection, "select * from Candidates");
         while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
-            array_push($mess1, $row1["Id"], $row1["name"], $row1["lastName"], $row1["mail"]);
-            array_push($all_mess, $mess1);//add one client to arrey
-                unset($mess1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-                $mess1 = array(); // arrey is here again          
+            array_push($client1, $row1["name"], $row1["lastName"], $row1["mail"],$row1["address"],$row1["phone"],$row1["weight"],$row1["bmi"],$row1["fat"],$row1["birth"],$row1["allergies"],$row1["txt"]);
+            array_push($all_Candidates, $client1);//add one client to arrey
+                unset($client1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $client1 = array(); // arrey is here again          
         }
-        $_SESSION['clients_messages']=$all_mess;
+        $_SESSION['candidates']=$all_Candidates;
 
-        echo "clients_messages:";
-        echo "<br>";
-        for($i = 0; $i < count($_SESSION['clients_messages']); $i++) {
-            foreach ($_SESSION['clients_messages'][$i] as $value) {
-                echo $value . "<br>";
-        }
-        echo "}<br>";
-        }
+        // echo "clients_messages:";
+        // echo "<br>";
+        // for($i = 0; $i < count($_SESSION['candidates']); $i++) {
+        //     foreach ($_SESSION['candidates'][$i] as $value) {
+        //         echo $value . "<br>";
+        // }
+        // echo "}<br>";
+        // }
 
 
         // $client_vid=array();
