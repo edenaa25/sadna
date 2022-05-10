@@ -90,7 +90,7 @@
         </section>
         <section class="sec">
             <h4 style="font-weight:bolder;">הוספת סרטוני כושר למאגר:</h4>
-            <p> "הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה</p>
+            <p> הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה</p>
             <form id="videoForm" action="#" method="post">
                         <label for="url">: Video URL</label><br>
                         <input type="text" id="url" name="url" required><br><br>
