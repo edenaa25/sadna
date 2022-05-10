@@ -264,7 +264,7 @@
                         $doc = $_POST["doc"];
                         $type = $_POST["type"];  
                       //בדיקה כי שם המשתמש לא נמצא במאגר
-                       if(!in_array($user,$_SESSION['clients'])){//לפתוח מערך לזה בסשן
+                       if(!in_array($user,$_SESSION['all_user_name'])){//לפתוח מערך לזה בסשן
                                 //הוספת לקוח לטבלת users
                                 $sql1= "INSERT INTO `users` (`user_name`, `password`, `first_name`, `last_name`, `address`, `phone`, `mail`, `birth`, `Allergies`) VALUES ('$user', '$pass','$first', '$last','$address', '$phone','$mail','$birth' ,'$allergies')";
                                 $res1 = $connection->query($sql1);
