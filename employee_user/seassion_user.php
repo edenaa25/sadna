@@ -38,6 +38,7 @@ if(!isset($login_session1) && !isset($login_session2) && !isset($login_session3)
     //header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
+<<<<<<< HEAD
     //echo "good seassion user";
     $ses_sql1=mysqli_query($connection, "select * from Administration where user_name='".$user_check."'");
     $ses_sql2=mysqli_query($connection, "select * from Coaches where user_name='".$user_check."'");
@@ -78,6 +79,14 @@ else{
     echo $_SESSION['employee_type']."<br/>";
     echo $_SESSION['employee_id']."<br/>";
     echo "}<br>";
+=======
+    echo "good seassion user";
+    // $ses_sql1=mysqli_query($connection, "select id_coach from Treatments where user_name='".$user_check."'");
+    // $row1 = mysqli_fetch_assoc($ses_sql1);
+    // $id_coach = $row1['id_coach'];
+    // $_SESSION['id_coach']= $id_coach;
+    // //echo $_SESSION['id_coach'];
+>>>>>>> atarA
 
     if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==1){ //שליפת נתנוים עבור מאמן או תזונאי
         $ses_sql1=mysqli_query($connection, "select * from Treatments where id_coach='".$_SESSION['employee_id']."' or id_nutri='".$_SESSION['employee_id']."'");
