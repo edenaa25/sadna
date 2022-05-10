@@ -221,6 +221,96 @@
                ?> <br>
   
         </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;">הוספת עבוד חדש (תזונאי או מאמן כושר):</h4>
+            <p>יש לבחור שם משתמש אשר לא קיים במערכת עבור נותן השרות</p>
+            <p>יש לבחור ססמא עבור נותן השרות</p>
+            <p> אם חסר נתונים יש ליצור קשר עם נותן השרות</p>
+            <p>לשלוח מייל והודעה אל העובד החדש עם שם המשתמש והססמא שלו לאתר </p>
+            <form id="addUserForm" action="#" method="post">
+                        <label for="user">: User Name</label><br>
+                        <input type="text" id="user" name="user" placeholder="שם משתמש אשר לא קיים במערכת" required><br><br>
+                        <label for="pass">: Password</label><br>
+                        <input type="text" id="pass" name="pass" placeholder="הכנס סיסמא חזקה" required><br><br>
+                        <label for="name">:Full Name</label><br>
+                        <input type="text" id="name" name="name" required ><br><br>
+                        <label for="birth">:Birth</label><br>
+                        <input type="date" id="birth" name="birth" required ><br><br>
+                        <label for="address">:Address</label><br>
+                        <input type="text" id="address" name="address" required ><br><br>
+                        <label for="phone">:Phone</label><br>
+                        <input type="text" id="phone" name="phone" required ><br><br>
+                        <label for="mail">:Mail</label><br>
+                        <input type="text" id="mail" name="mail" required ><br><br> 
+                        <label for="doc">:Docs</label><br>
+                        <input type="file" id="doc" name="doc" required ><br><br>
+                        <label for="type">:Employee Type</label><br>
+                        <p> Enter the number 1 for nutritionist <br>
+                            For the Coach enter the number 2</p>
+                        <input type="number" id="type" name="type" required ><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+            </form>
+            <?php 
+                        //include('seassion_user.php'); 
+                    if($_SESSION['employee_type']==3){
+                        if(isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["name"]) && isset($_POST["birth"])&& isset($_POST["address"])&& isset($_POST["phone"])&& isset($_POST["mail"])&& isset($_POST["doc"])&& isset($_POST["type"])){
+                        $user = $_POST["user"];
+                        $pass = $_POST["pass"]; 
+                        $name = $_POST["name"];  
+                        $birth=$_POST["birth"];
+                        $address = $_POST["address"];
+                        $phone = $_POST["phone"];
+                        $mail = $_POST["mail"];
+                        $doc = $_POST["doc"];
+                        $type = $_POST["type"];  
+                      //בדיקה כי שם המשתמש לא נמצא במאגר
+                       if(!in_array($user,$_SESSION['clients'])){//לפתוח מערך לזה בסשן
+                                //הוספת לקוח לטבלת users
+                                $sql1= "INSERT INTO `users` (`user_name`, `password`, `first_name`, `last_name`, `address`, `phone`, `mail`, `birth`, `Allergies`) VALUES ('$user', '$pass','$first', '$last','$address', '$phone','$mail','$birth' ,'$allergies')";
+                                $res1 = $connection->query($sql1);
+                                //הוספת תהליך חדש של לקוח לטבלת טיפולים (THREATMENTS)
+                                $sql2= "INSERT INTO `Treatments` (`user_name`,`id_nutri`,`id_coach`,`BMI_start`,`fatP_start`) VALUES ('$user', '$nut', '$coach', '$bmi', '$fat')";
+                                $res2 = $connection->query($sql2);
+                                    if ($res1 === TRUE) { 
+                                        echo "<p style='color:red;'>update user Successfully</p>";
+                                        //echo "update user Successfully";
+                                        echo "<br>";
+                                    } else {
+                                        echo "<p style='color:red;'>Error updating record: update user unsuccessfully </p>" . $conn->error;
+                                        //echo "Error updating record: update user unsuccessfully " . $conn->error;
+                                        echo "<br>";
+                                    }
+                                    if($res2 === TRUE){
+                                        echo "<p style='color:red;'>update threatment Successfully </p>" ;
+                                        //echo "update threatment Successfully";
+                                        echo "<br>";
+                                    }
+                                    else{
+                                        echo "<p style='color:red;'>Error updating record: update threatment unsuccessfully</p>" . $conn->error;
+                                        //echo "Error updating record: update threatment unsuccessfully " . $conn->error;
+                                        echo "<br>";
+                                        echo "<p style='color:red;'>Make sure you enter a valid ID number for a nutritionist and coach</p>" ;
+                                        //echo "Make sure you enter a valid ID number for a nutritionist and coach";
+                                        echo "<br>";
+                                    }
+                              }
+                              else{
+                                echo "<p style='color:red;'>שם משתמש נמצא במערכת, יש לבחור שם משתמש אחר</p>" ;
+                                  //echo "שם משתמש נמצא במערכת, יש לבחור שם משתמש אחר";
+                              }
+                            }
+                        else{
+                            echo "<p style='color:red;'>יש למלא את כל הנתונים עבור הזנת משתמש חדש ותהליך חדש עבורו</p>" ;
+                                //echo "יש למלא את כל הנתונים עבור הזנת משתמש חדש ותהליך חדש עבורו";
+                            }
+                    }
+                    else{
+                        echo "<p style='color:red;'>הזנת לקוח חדש למאגר אפשרית רק עבור עובדי אדמיניסטרציה</p>" ;
+                        //echo "הזנת לקוח חדש למאגר אפשרית רק עבור עובדי אדמיניסטרציה";
+                    }
+               ?> <br>
+  
+        </section>
         
     </main>
 
