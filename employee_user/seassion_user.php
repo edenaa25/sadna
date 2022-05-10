@@ -28,7 +28,7 @@ if(!isset($login_session1)){
     header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
-    echo "good seassion user"
+    echo "good seassion user";
     // $ses_sql1=mysqli_query($connection, "select id_coach from Treatments where user_name='".$user_check."'");
     // $row1 = mysqli_fetch_assoc($ses_sql1);
     // $id_coach = $row1['id_coach'];
