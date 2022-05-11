@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/Unregistered_user/CSS/mainCSS.css">
     <link rel="stylesheet" href="/employee_user/CSS/welcome.css">
-
+    <link rel="stylesheet" href="/employee_user/CSS/admin.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -129,33 +129,51 @@
             לשלוח מייל והודעה אל הלקוח עם שם המשתמש והססמא שלו לאתר </p>
             <div style="clear: both;"></div>
             <form id="addUserForm" action="#" method="post">
-                        <input type="text" id="user" name="user" placeholder="שם משתמש אשר לא קיים במערכת" required>
-                        <label for="user">:Client User Name</label><br><br>
-                        <input type="text" id="pass" name="pass" placeholder="הכנס סיסמא חזקה" required>
-                        <label for="pass">:Client Password</label><br><br>
-                        <input type="text" id="first" name="first" required >
-                        <label for="first">:First Name</label><br><br>
-                        <input type="text" id="last" name="last" required >
-                        <label for="last">:Last Name</label><br><br>
-                        <input type="text" id="address" name="address" required >
-                        <label for="address">:Address</label><br><br>
-                        <input type="text" id="phone" name="phone" required >
-                        <label for="phone">:phone</label><br><br>
-                        <input type="text" id="mail" name="mail" required >
-                        <label for="mail">:mail</label><br><br>
-                        <input type="date" id="birth" name="birth" required >
-                        <label for="birth">:Birth</label><br><br>
-                        <input type="text" id="allergies" name="allergies" required >
-                        <label for="allergies">:Allergies</label><br><br>
-                        <input type="number" id="nut" name="nut" placeholder="שיבוץ תזונאי מטפל" required >
-                        <label for="nut">:ID Nutritionist</label><br><br>
-                        <input type="number" id="coach" name="coach" placeholder="שיבוץ מאמן כושר מטפל" required >
-                        <label for="coach">:ID Coach</label><br><br>
-                        <input type="number" id="bmi" name="bmi" required >
-                        <label for="bmi">:Start BMI</label><br><br>
-                        <input type="number" id="fat" name="fat" required >
-                        <label for="fat">:Start fat percentage</label><br><br>
-                        <input id="submit1" type="submit" value="עדכן">
+                    <div class="div">
+                        <input class="input" type="text" id="user" name="user" placeholder="שם משתמש אשר לא קיים במערכת" required>
+                        <label class="p" for="user">:Client User Name</label><br><br> </div>
+                    <div class="div">
+                        <input class="input" type="text" id="pass" name="pass" placeholder="הכנס סיסמא חזקה" required>
+                        <label class="p" for="pass">:Client Password</label><br><br> </div>
+                    <div class="div">   
+                        <input class="input"  type="text" id="first" name="first" required >
+                        <label class="p" for="first">:First Name</label><br><br> </div>
+                        <div class="div">
+                        <input class="input" type="text" id="last" name="last" required >
+                        <label class="p" for="last">:Last Name</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="address" name="address" required >
+                        <label class="p" for="address">:Address</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="phone" name="phone" required >
+                        <label class="p" for="phone">:phone</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="mail" name="mail" required >
+                        <label class="p" for="mail">:mail</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="date" id="birth" name="birth" required >
+                        <label class="p" for="birth">:Birth</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="allergies" name="allergies" required >
+                        <label class="p" for="allergies">:Allergies</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="number" id="nut" name="nut" placeholder="שיבוץ תזונאי מטפל" required >
+                        <label class="p" for="nut">:ID Nutritionist</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="number" id="coach" name="coach" placeholder="שיבוץ מאמן כושר מטפל" required >
+                        <label class="p" for="coach">:ID Coach</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="number" id="bmi" name="bmi" required >
+                        <label class="p" for="bmi">:Start BMI</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="number" id="fat" name="fat" required >
+                        <label class="p" for="fat">:Start fat percentage</label><br><br></div>
+                        <div style="clear: both;"></div>
+                        <div class="center">
+                        <input type="submit" class="button2" value="עדכן" >
+                        </div>
+                        <!-- <input id="submit1" type="submit" value="עדכן"> -->
+
             </form>
             <?php 
                         //include('seassion_user.php'); 
@@ -224,36 +242,49 @@
         </section>
         <section class="sec">
             <h4 style="font-weight:bolder;">הוספת עבוד חדש (תזונאי , מאמן כושר , עובד אדמיניסטרציה):</h4>
-            <p style="float: right; text-align: right; margin-right: 1%;">יש לבחור שם משתמש אשר לא קיים במערכת עבור נותן השרות
+            <p style="float: right; text-align: right; margin-right: 1%;">יש לבחור שם משתמש אשר לא קיים במערכת עבור נותן השרות<br>
             יש לבחור ססמא עבור נותן השרות<br>
              אם חסר נתונים יש ליצור קשר עם נותן השרות<br>
             לשלוח מייל והודעה אל העובד החדש עם שם המשתמש והססמא שלו לאתר <br> </p>
             <div style="clear: both;"></div>
-            <form id="addUserForm" action="#" method="post">
-                        <input type="number" id="id" name="id" required >
-                        <label for="id">:ID</label><br><br>
-                        <input type="text" id="user" name="user" placeholder="שם משתמש אשר לא קיים במערכת" required>
-                        <label for="user">: User Name</label><br><br>
-                        <input type="text" id="pass" name="pass" placeholder="הכנס סיסמא חזקה" required>
-                        <label for="pass">: Password</label><br><br>
-                        <input type="text" id="name" name="name" required >
-                        <label for="name">:Full Name</label><br><br>
-                        <input type="date" id="birth" name="birth" required >
-                        <label for="birth">:Birth</label><br><br>
-                        <input type="text" id="address" name="address" required >
-                        <label for="address">:Address</label><br><br>
-                        <input type="text" id="phone" name="phone" required >
-                        <label for="phone">:Phone</label><br><br>
-                        <input type="text" id="mail" name="mail" required > 
-                        <label for="mail">:Mail</label><br><br>
-                        <input type="file" id="doc" name="doc" >
-                        <label for="doc">:Docs</label><br><br>
-                        <input type="number" id="type" name="type" required >
-                        <label for="type">:Employee Type</label><br>
+            <form style="overflow: auto;" id="addUserForm" action="#" method="post">
+                        <div class="div">
+                        <input class="input" type="number" id="id" name="id" required >
+                        <label class="p" for="id">:ID</label><br><br> </div>
+                        <div class="div">
+                        <input class="input" type="text" id="user" name="user" placeholder="שם משתמש אשר לא קיים במערכת" required>
+                        <label class="p" for="user">: User Name</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="pass" name="pass" placeholder="הכנס סיסמא חזקה" required>
+                        <label class="p" for="pass">: Password</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="name" name="name" required >
+                        <label class="p" for="name">:Full Name</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="date" id="birth" name="birth" required >
+                        <label class="p" for="birth">:Birth</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="address" name="address" required >
+                        <label class="p" for="address">:Address</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="text" id="phone" name="phone" required >
+                        <label class="p" for="phone">:Phone</label><br><br></div>                        <div class="div">
+                        <div class="div">
+                        <input class="input" type="text" id="mail" name="mail" required > 
+                        <label class="p" for="mail">:Mail</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="file" id="doc" name="doc" >
+                        <label class="p" for="doc">:Docs</label><br><br></div>
+                        <div class="div">
+                        <input class="input" type="number" id="type" name="type" required >
+                        <label class="p" for="type">:Employee Type</label><br>
                         <p> Enter 1 for nutritionist <br>
                             Enter 2 for coach <br>
-                            Enter 3 for Administration</p>
-                        <input id="submit1" type="submit" value="עדכן">
+                            Enter 3 for Administration</p></div>
+                        <div style="clear: both;"></div>
+                        <div class="center">
+                        <input type="submit" class="button2" value="עדכן" >
+                        </div>
             </form>
             <?php 
                         //include('seassion_user.php'); 
@@ -315,6 +346,7 @@
         </section>
         
     </main>
+    <div style="clear: both;"></div>
 
     <footer id="footer"></footer>
     <script>

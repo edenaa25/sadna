@@ -72,9 +72,9 @@ else{
     $_SESSION['birth']=$row3['birth'];
     $_SESSION['employee_type']=$row3['type']; // nuthri=1, coaches=2, administration=3
    } 
-    echo $_SESSION['employee_type']."<br/>";
-    echo $_SESSION['employee_id']."<br/>";
-    echo "}<br>";
+    // echo $_SESSION['employee_type']."<br/>";
+    // echo $_SESSION['employee_id']."<br/>";
+    // echo "}<br>";
 
     if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==1){ //שליפת נתנוים עבור מאמן או תזונאי
         $ses_sql1=mysqli_query($connection, "select * from Treatments where id_coach='".$_SESSION['employee_id']."' or id_nutri='".$_SESSION['employee_id']."'");

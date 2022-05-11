@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 
 ?>
 
@@ -30,7 +30,7 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <h4> <span style="font-weight: bold;"> התזכורות שלך לשבוע: </span> <br> </h4>
             <?php echo $_SESSION['txt'] ?>
         </section>
@@ -76,7 +76,7 @@
                         //יש הוספה של 3 שורות ריקות, לטפל בזה
                         $res = $connection->query($sql);
                             if ($res === TRUE) {
-                                echo "השקילה שלך עודכנה ";
+                                echo  "<p style='color:red;'>השקילה שלך עודכנה בהצלחה</p>";
                             } else {
                                 echo "Error updating record: " . $conn->error;
                             }

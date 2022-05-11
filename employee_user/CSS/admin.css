@@ -1,44 +1,17 @@
-body{
-    font-family: sans-serif;   
-    width: 100%; 
-}
-*{
-    text-align: right;
-}
-.main{
-    width: 70%;
-}
-aside{
-    float: left;
-    width: 30%;
-    height: 60%;
-}
-
-#img{
-    margin-left: 2%;
-    margin-top: 20%;
-    margin-right: 1%;
-    width: 90%;
-    height: 90%;
-    text-align: center;
-}
 .p{
     font-weight: bolder;
     display: inline;
-    width: 30%;
-    float: right;
+    width: 25%;
+    float: left;
     
 }
-h2{
-    text-align: center;
-    background-color: rgb(72, 189, 189);
-    width: 143%;
-}
+
 .div{
-    float: right;
+    float: left;
     width: 48%;
     margin-bottom: 2%;
 }
+
 .input{
 	border-radius: 4px;
 	max-width: 5cm;
@@ -47,8 +20,18 @@ h2{
 	border: 2px solid rgb(131, 125, 125);
 }
 
+#addUserForm{
+    width: 70%;
+    margin: auto;
+}
+
+#addUserForm{
+    width: 70%;
+    margin: auto;
+}
+
 .button2{
-	background-color:green;
+	background-color:lightgreen;
 	font-size:x-large;
     text-align: center;
     max-width: 5cm;
@@ -71,15 +54,15 @@ h2{
 	.p{width: 40%;}
     .input{width: 55%;}	
     .div{width: 48%;}
-    aside.a{display: none;}
+    /* aside.a{display: none;}
     img#img{display: none;}
     .main{width: 90%;}
-    h2{width: 120%;}
+    h2{width: 120%;} */
 
 	
 }
 @media only screen and (max-width: 470px) {
-	h5 {width: 80%; text-align: center;}
+	/* h5 {width: 80%; text-align: center;} */
     .div {display: block; clear: both; width: 99%;}
 	
 }

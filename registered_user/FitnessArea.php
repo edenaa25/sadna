@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+ //echo $_SESSION['login_user'];
 
 ?>
 
@@ -30,14 +30,14 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <p>
-                המאמן אשר מוביל אותך בתהליך ההרזייה הינו <?php echo $_SESSION['name_coach']  ?>
+            The fitness trainer who leads you through the process is <?php echo $_SESSION['name_coach']  ?>
             </p>
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם המאמן שלך:</h4>
-            <p> מספר פלאפון: 0<?php echo $_SESSION['phone_coach']  ?> </p>
+            <p> מספר פלאפון: <?php echo $_SESSION['phone_coach']  ?> </p>
             <p>מייל אישי: <?php echo $_SESSION['mail_coach']  ?></p>
         </section>
         <section class="sec1">

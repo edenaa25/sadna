@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 
 ?>
 
@@ -30,13 +30,13 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <h4> <span style="font-weight: bold;">אז מה אכלת היום? </span> <br> </h4>
         </section>
 
         <section class="sec1 imgsec">
         <p style="color: red; text-align: right; font-weight: bolder;">*אם דילגת על ארוחה ציין זאת</p>
-        <p style="color: red; text-align: right; font-weight: bolder;"> *יש למלא את כל תיבות הטקסט</p>
+        <p style="color: red; text-align: right; font-weight: bolder;"> *יש למלא את כל תיבות הטקסט בשפה האנגלית בלבד</p>
         <form id="weightForm" action="#" method="post">
             <img class="imgsec" src="images/foodDiary.webp" alt="Smiley face" style="float:left;width:40%;margin-top: 10%; margin-left: 1%;">
             <label for="date">הכנס תאריך עבור מילוי יומן האכילה שלך לאותו היום:</label>
