@@ -42,9 +42,7 @@
             <p>מייל אישי: <?php echo $_SESSION['mail_nutri']  ?></p>
         </section>
         <section class="sec1">
-            <h4>
-                התפריט שלך:  
-            </h4>
+        <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">התפריט שלך:</h4>
             <img class="img" src="images/menu1.jpg" alt = "someee">
             <!-- <?php
                 $ses_sql1=mysqli_query($connection, "select menu from Treatments where idTrit = 1");
@@ -53,6 +51,7 @@
             <!-- תפריט שצריך להגיע מהטבלאות -->
         </section>
         <section class="sec1">
+        <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">עדכון נתוני תהליך יום יומיים:</h4>
             <h4>
                 מילוי של יומן האוכל בצורה עקבית ויומיומים חשוב מאוד לתהליך ויעזור לתזונאי שלך
                 להגדיר ולשנות בשבילך את התפריט לפי מידת הצורך ולהגדיר לך יעדים! <br> <br>
@@ -95,6 +94,54 @@
             </h4>
             <div style="clear: both;"></div>
 
+        </section>
+
+        <section class="sec1">
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">עדכון נתוני תהליך תקופתיים:</h4>
+                    <form action="#" method="post">
+                        <label for="bmi">:Current BMI</label><br>
+                        <input type="number" id="bmi" name="bmi" required><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+                    </form>
+                    <?php 
+                        include('seassion.php'); 
+                        //echo $_SESSION['login_user'];
+                     if(isset($_POST["bmi"])){
+                        $bmi = $_POST["bmi"];
+                        
+                        //$sql = " INSERT INTO weighs SET  weight = '".$curr_weight."',date = '".$date."', user_name = '".$user."'";
+                        $sql= "UPDATE `Treatments` SET `BMI_curr` = '".$bmi."' WHERE `Treatments`.`user_name` = '".$_SESSION['login_user']."'";
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo  "<p style='color:red;'>BMI עודכן בהצלחה</p>";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                        ?> <br>
+                    <br>
+                    <form action="#" method="post">
+                        <label for="fat">:Current fat percentage</label><br>
+                        <input type="number" id="fat" name="fat" required><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+                    </form>
+                    <?php 
+                        //include('seassion.php'); 
+                        //echo $_SESSION['login_user'];
+                     if(isset($_POST["fat"])){
+                        $fat = $_POST["fat"];
+                        
+                        $sql= "UPDATE `Treatments` SET `fatP_curr` = '".$fat."' WHERE `Treatments`.`user_name` = '".$_SESSION['login_user']."'";
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo  "<p style='color:red;'>אחוזי שומן עודכן בהצלחה</p>";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                        ?> <br>
+                    <br>
+                    
         </section>
     
     </main>
