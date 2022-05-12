@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/Unregistered_user/CSS/mainCSS.css">
     <link rel="stylesheet" href="/registered_user/CSS/welcome.CSS">
+    <!-- <link rel="stylesheet" href="/registered_user/CSS/welcome2.css"> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -89,18 +90,8 @@
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטים אישיים:</h4>
-            <table class="center">
-                <!-- <tr>
-                    <th style="padding: 5%;">כתובת</th>
-                    <th style="padding: 5%;">פלאפון</th>
-                    <th style="padding: 5%;">מייל</th>
-                </tr>
-                <tr>
-                    <td style="padding: 5%;"> <?php  echo $_SESSION['address'] ?></td>    
-                    <td style="padding: 5%;"> 0<?php  echo $_SESSION['phone']; ?></td>   
-                    <td style="padding: 5%;"> <?php echo $_SESSION['mail'] ?></td>                    
-                </tr>
-                </table> -->
+            <table class="center" >
+            
                 <tr>
                     <th>user name</th>
                     <th>first name</th>

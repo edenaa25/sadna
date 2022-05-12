@@ -1,6 +1,6 @@
 <?php 
  include('seassion_user.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 ?>
 
 
@@ -89,10 +89,19 @@
 
         </section>
         <section class="sec">
+        <h4 style="font-weight:bolder;">הדרכה עבור הוספת סרטון כושר למאגר הסרטונים:</h4>
+        <p> אם תגולל קצת למטה בדף תוכל לראות איפה מוסיפים סרטון כושר למאגר</p>
+        <p> בכדי להוסיף סרטון כושר יש להזין את קוד ההטמעה של הסרטון ולא את כתובתו הרגילה, הדרכה קצרה בנוגע לכך:</p>
+        <p> כאשר אתה נכנס לסרטון ביוטיוב, בקליק ימני על הסרטון תלחץ על - העתקת קוד הטמעה. <br>דוגמא לקוד הטמעה: <br></p>
+        <img src="/employee_user/images/codeForCoach.png" alt="Implementation code" style="width: 40%; height: auto;"><br>
+        <p> יש להעתיק את הכתובת אשר שווה לערך SRC</p>
+        </section>
+        <section class="sec">
             <h4 style="font-weight:bolder;">הוספת סרטוני כושר למאגר:</h4>
             <p> הזנת סרטונים למאגר אפשרית רק עבור מאמני כושר ועובדי אדמיניסטרציה</p>
+            <p> יש להזין קוד הטמעה של סרטון ולא את כתובתו הרגילה (אם לא ברור לך איך עושים זאת יש לשאול את עובדי האדמיניסטרציה)</p>
             <form id="videoForm" action="#" method="post">
-                        <label for="url">: Video URL</label><br>
+                        <label for="url">: Video URL (Implementation code)</label><br>
                         <input type="text" id="url" name="url" required><br><br>
                         <label for="type">: Type of training</label><br>
                         <input type="text" id="type" name="type" required><br><br>

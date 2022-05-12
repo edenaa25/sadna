@@ -347,6 +347,29 @@ else{
         //     }
         //     echo "}<br>";
         //     }
+
+        //שמירת פרטי עובדים עבור הדפסה באזור אדמניסטרציה
+        $employee=array();
+        $all_employes=array();
+        $ses_sql1= mysqli_query($connection, "select * from Nutritionists");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($employee, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($all_employes, $employee);//add one client to arrey
+                unset($employee); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employee = array(); // arrey is here again          
+        }
+        $_SESSION['Nutritionists_data']=$all_employes;
+
+        $employee2=array();
+        $all_employes2=array();
+        $ses_sql1= mysqli_query($connection, "select * from Coaches");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($employee2, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($all_employes2, $employee2);//add one client to arrey
+                unset($employee2); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employee2 = array(); // arrey is here again          
+        }
+        $_SESSION['Coaches_data']=$all_employes2;
    
 }
  ?>

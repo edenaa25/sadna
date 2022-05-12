@@ -1,6 +1,6 @@
 <?php 
  include('seassion_user.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 ?>
 
 
@@ -119,6 +119,56 @@
                                 echo "</table>";
                 ?>
 
+        </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;">פרטי תזונאים :</h4>
+            <table class="center">
+                <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <th>Name</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Mail</th>
+                </tr>
+
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['Nutritionists_data']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['Nutritionists_data'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
+        </section>
+        <section class="sec">
+            <h4 style="font-weight:bolder;">פרטי מאמני כושר :</h4>
+            <table class="center">
+                <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <th>Name</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Mail</th>
+                </tr>
+
+                <?php
+                   // echo "<table border =\"1\" style='border-collapse: collapse'>";
+                        for ($row=0; $row < count($_SESSION['Coaches_data']); $row++) { 
+                            echo "<tr> \n";
+                            foreach($_SESSION['Coaches_data'][$row] as $value){ 
+                                echo "<td>$value</td> \n";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                ?>
         </section>
         <section class="sec">
             <h4 style="font-weight:bolder;"> הוספת לקוח למאגר ותחילת תהליך:</h4>
@@ -240,8 +290,9 @@
                ?> <br>
   
         </section>
+
         <section class="sec">
-            <h4 style="font-weight:bolder;">הוספת עבוד חדש (תזונאי , מאמן כושר , עובד אדמיניסטרציה):</h4>
+            <h4 style="font-weight:bolder;">הוספת עובד חדש (תזונאי , מאמן כושר , עובד אדמיניסטרציה):</h4>
             <p style="float: right; text-align: right; margin-right: 1%;">יש לבחור שם משתמש אשר לא קיים במערכת עבור נותן השרות<br>
             יש לבחור ססמא עבור נותן השרות<br>
              אם חסר נתונים יש ליצור קשר עם נותן השרות<br>
@@ -344,6 +395,7 @@
                ?> <br>
   
         </section>
+
         
     </main>
     <div style="clear: both;"></div>
