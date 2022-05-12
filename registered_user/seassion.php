@@ -131,18 +131,29 @@ else{
      $ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
      $index=0;
      $user_videos_url=array();
+     $user_videos_type=array();
      while($row1=mysqli_fetch_array($ses_sql1)){
          $user_video_id = $row1["id_video"];
          //echo $user_videos[$index] ."<br />";
          $ses_sql2= mysqli_query($connection, "select url from FitnessVideo where id_video='".$user_video_id."'");
+         $ses_sql3= mysqli_query($connection, "select type from FitnessVideo where id_video='".$user_video_id."'");
          $row2 = mysqli_fetch_assoc($ses_sql2);
+         $row3 = mysqli_fetch_assoc($ses_sql3);
          $url= $row2['url'];
+         $type= $row3['type'];
          $user_videos_url[$index]= $url;
+         $user_videos_type[$index]= $type;
          //echo $user_videos_url[$index] ."<br />";
          $index= $index+1;    
      }
-     $_SESSION['user_videos']=  $user_videos_url;
+     $_SESSION['user_videos']=  $user_videos_url;//שמירת כתובות להצגת סרטונים עבור לקוח
+     $_SESSION['user_videos_type']=  $user_videos_type;//שמירת סוג אימון עבור אותו הסרטון של לקוח
+
+    //הדפסות המערכים
     //  foreach($_SESSION['user_videos'] as $val){
+    //         echo $val."<br/>";
+    //     }
+    //     foreach($_SESSION['user_videos_type'] as $val){
     //         echo $val."<br/>";
     //     }
 

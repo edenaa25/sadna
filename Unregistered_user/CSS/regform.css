@@ -48,13 +48,12 @@ h2{
 }
 
 .button2{
-	background-color:rgb(72, 189, 189);;
+	background-color:green;
 	font-size:x-large;
     text-align: center;
     max-width: 5cm;
 	width: 60%;
 }   
-
 
 .center{
     width: 40%;

@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+ //echo $_SESSION['login_user'];
 
 ?>
 <!DOCTYPE html>
@@ -28,10 +28,18 @@
     <div style="clear: both;"></div>
     <main class="main">
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name'] ?> </h1> <br>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name'] ?> </h1> <br>
             <h4> בחלק זה תוכלו לראות את התקדמותכם, את התפריט שהתזונאי שלכם בנה לכם וגם תוכלו להזין את הנתונים שלכם 
                 אודות יומן האוכל והשקילה היומית שלכם
             </h4>
+            <p>
+            The nutritionist who leads you through the process is <strong> <?php echo $_SESSION['name_nutri']  ?></strong>
+            </p>
+        </section>
+        <section class="sec1">
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם התזונאי שלך:</h4>
+            <p> מספר פלאפון: <?php echo $_SESSION['phone_nutri']  ?> </p>
+            <p>מייל אישי: <?php echo $_SESSION['mail_nutri']  ?></p>
         </section>
         <section class="sec1">
             <h4>

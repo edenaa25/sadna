@@ -1,0 +1,68 @@
+.p{
+    font-weight: bolder;
+    display: inline;
+    width: 25%;
+    float: left;
+    
+}
+
+.div{
+    float: left;
+    width: 48%;
+    margin-bottom: 2%;
+}
+
+.input{
+	border-radius: 4px;
+	max-width: 5cm;
+	width: 60%;
+	margin: 0 1%;
+	border: 2px solid rgb(131, 125, 125);
+}
+
+#addUserForm{
+    width: 70%;
+    margin: auto;
+}
+
+#addUserForm{
+    width: 70%;
+    margin: auto;
+}
+
+.button2{
+	background-color:lightgreen;
+	font-size:x-large;
+    text-align: center;
+    max-width: 5cm;
+	width: 60%;
+}   
+
+.center{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 860px){
+    .div > .input{width: 50%;}
+    .div > .p{width: 48%;}
+    
+}
+
+@media only screen and (max-width: 660px) {
+	.p{width: 40%;}
+    .input{width: 55%;}	
+    .div{width: 48%;}
+    /* aside.a{display: none;}
+    img#img{display: none;}
+    .main{width: 90%;}
+    h2{width: 120%;} */
+
+	
+}
+@media only screen and (max-width: 470px) {
+	/* h5 {width: 80%; text-align: center;} */
+    .div {display: block; clear: both; width: 99%;}
+	
+}
