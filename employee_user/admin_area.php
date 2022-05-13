@@ -265,12 +265,18 @@
                                         echo "<br>";
                                     }
                                     else{
-                                        echo "<p style='color:red;'>Error updating record: update threatment unsuccessfully</p>" . $conn->error;
+                                        echo "<p style='color:red;'>update threatment unsuccessfully</p>" . $conn->error;
                                         //echo "Error updating record: update threatment unsuccessfully " . $conn->error;
                                         echo "<br>";
                                         echo "<p style='color:red;'>Make sure you enter a valid ID number for a nutritionist and coach</p>" ;
-                                        //echo "Make sure you enter a valid ID number for a nutritionist and coach";
                                         echo "<br>";
+                                        $sql3= "DELETE FROM `users` WHERE `users`.`user_name` =  '$user'";
+                                        $res3 = $connection->query($sql3);
+                                        if($res3 == TRUE){
+                                            echo "<p style='color:red;'>Deleting a user from the repository, re-enter correct details</p>" ;
+                                            echo "<br>";
+
+                                        }
                                     }
                               }
                               else{

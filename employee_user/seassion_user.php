@@ -339,37 +339,44 @@ else{
                 $user_name1 = array(); // arrey is here again          
         }
         $_SESSION['all_user_name']=$all_users;
-        // echo "all users name:";
-        // echo "<br>";
-        // for($i = 0; $i < count($_SESSION['all_user_name']); $i++) {
-        //         foreach($_SESSION['all_user_name'][$i] as $value) {
-        //             echo $value . "<br>";
-        //     }
-        //     echo "}<br>";
-        //     }
-
+       
         //שמירת פרטי עובדים עבור הדפסה באזור אדמניסטרציה
         $employee=array();
+        $employeeID=array();
         $all_employes=array();
+        $all_id=array();
         $ses_sql1= mysqli_query($connection, "select * from Nutritionists");
         while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
             array_push($employee, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($employeeID, $row1["Id"]);
             array_push($all_employes, $employee);//add one client to arrey
+            array_push($all_id, $employeeID);//add one client to arrey
                 unset($employee); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-                $employee = array(); // arrey is here again          
+                $employee = array(); // arrey is here again 
+                unset($employeeID); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employeeID = array(); // arrey is here again          
         }
         $_SESSION['Nutritionists_data']=$all_employes;
+        $_SESSION['Nutritionists_id']=$all_id;
+
 
         $employee2=array();
+        $employeeID2=array();
         $all_employes2=array();
+        $all_ID2=array();
         $ses_sql1= mysqli_query($connection, "select * from Coaches");
         while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
             array_push($employee2, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($employeeID2, $row1["Id"]);
             array_push($all_employes2, $employee2);//add one client to arrey
+            array_push($all_ID2, $employeeID2);//add one client to arrey
                 unset($employee2); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-                $employee2 = array(); // arrey is here again          
+                $employee2 = array(); // arrey is here again   
+                unset($employeeID2); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employeeID2 = array(); // arrey is here again         
         }
         $_SESSION['Coaches_data']=$all_employes2;
-   
+        $_SESSION['Coaches_id']=$all_ID2;
+
 }
  ?>

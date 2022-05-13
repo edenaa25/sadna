@@ -66,7 +66,8 @@ button.ghost {
 			0 10px 10px rgba(0,0,0,0.22);
 	
 	overflow: hidden;
-	width: 768px;
+	/* width: 768px; */
+	width: 80%;
 	max-width: 100%;
 	
 }
@@ -235,8 +236,4 @@ section{
 		text-align: center;
 		padding-right: 10%;			
 	}
-}
-@media screen and (max-width: 1200px) {
-			
-	
 }

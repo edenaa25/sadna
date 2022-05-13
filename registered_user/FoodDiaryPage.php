@@ -48,8 +48,8 @@
                                 ארוחת בוקר </label>                           
                         </td>
                         <td><textarea id="Breakfast" name="Breakfast"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת בוקר</textarea>                          
+                            rows="5" cols="33" placeholder="הקלד ארוחת בוקר" required>
+                            </textarea>                          
                         </td>
                     </tr>
                     <tr>
@@ -58,8 +58,8 @@
                             </label>
                         </td>
                         <td><textarea id="mid1" name="mid1"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ביניים ראשונה להיום</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ביניים ראשונה להיום" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -68,8 +68,8 @@
                             </label>
                         </td>
                         <td><textarea id="lunch" name="lunch"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת צהריים</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת צהריים" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -78,8 +78,8 @@
                             </label>
                         </td>
                         <td><textarea id="mid2" name="mid2"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ביניים שניה להיום</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ביניים שניה להיום" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -88,8 +88,8 @@
                             </label>
                         </td>
                         <td><textarea id="dinner" name="dinner"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ערב</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ערב" required>
+                            </textarea>
                         </td>
                     </tr>                   
             </table>

@@ -41,7 +41,7 @@
                 <input class="half" type="text" id="name" name="name" maxlength="20" required placeholder="שם">
                 <input class="half" type="tel" id="tel" name="tel" placeholder="טלפון" required >
                 <input class="whole" type="email" id="email" name="email" placeholder="מייל" required>
-                <textarea class="whole" name="message" id="message" cols="5" rows="4" placeholder="הודעה" required></textarea>
+                <textarea class="whole" name="message" id="message" cols="5" rows="4" placeholder="הודעה" ></textarea>
                 
                 <div class="center">
                     <input class="button2" type="submit" value="שליחה">
