@@ -80,10 +80,10 @@ else{
     $_SESSION['BMI_curr']=  $BMI_curr;
     //echo $_SESSION['BMI_curr'];
 
-    $ses_sql1=mysqli_query($connection, "select menu from Treatments where user_name='".$user_check."'");
-    $row1 = mysqli_fetch_assoc($ses_sql1);
-    $menu = $row1['menu'];
-    $_SESSION['menu']=  $menu;
+    // $ses_sql1=mysqli_query($connection, "select menu from Treatments where user_name='".$user_check."'");
+    // $row1 = mysqli_fetch_assoc($ses_sql1);
+    // $menu = $row1['menu'];
+    // $_SESSION['menu']=  $menu;
     //echo $_SESSION['menu'];
 
     $ses_sql1=mysqli_query($connection, "select txt from Treatments where user_name='".$user_check."'");
