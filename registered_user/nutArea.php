@@ -37,10 +37,16 @@
             <h4>
                 התפריט שלך:  
             </h4>
-            <img class="img" src="images/menu1.jpg" alt = "someee">
-            <!-- <?php
-                $ses_sql1=mysqli_query($connection, "select menu from Treatments where idTrit = 1");
-            ?> -->
+
+            <?php 
+                // header('Content-Type: image/png');
+                $sql =mysqli_query($connection, "SELECT menu_id FROM Treatments WHERE user_name = '".$user_check."';");
+                $row12 = mysqli_fetch_assoc($sql);
+                $sql =mysqli_query($connection, "SELECT * FROM menus where id = '".$row12['menu_id']."';");
+                $row123 = mysqli_fetch_assoc($sql);
+                echo '<img class="img" src=" data: image/jpg;base64,'.base64_encode($row123['menu']).'" height= "300px"  alt = "someee">';
+            ?>
+           
             <!-- <img src="/registered_user/images/menu1.jpg" alt="err"> -->
             <!-- תפריט שצריך להגיע מהטבלאות -->
         </section>
