@@ -28,7 +28,7 @@ include('login.php'); // Includes Login Script
 <body>
     <header id="header"></header>
     <div style="clear: both;"></div>
-    <p style="text-align: right;">הזנת נתונים בשפה האנגלית בלבד </p>
+    <!-- <p style="text-align: right;">הזנת נתונים בשפה האנגלית בלבד </p> -->
     <main>
         <div class="container" id="container">
             <!-- sign in page -->
@@ -62,6 +62,7 @@ include('login.php'); // Includes Login Script
                 השאירו לנו פרטים ונחזור אליכם על מנת שנוכל לצאת למסע ביחד!
             </p>
             <form action="#" method="post" >
+                <p> *הזנת נתונים בשפה האנגלית בלבד</p>
                 <input class="input2" type="text" id="name" name="name" required placeholder="שם מלא">
                 <input class="input2" type="tel" id="tel" name="tel" required placeholder="טלפון">
                 <input class="input2" type="email" id="email" name="email" required placeholder="מייל">

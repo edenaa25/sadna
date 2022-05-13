@@ -38,6 +38,7 @@
                 <h4><b>כתבו לנו</b></h4>
                 <p>רוצים להצטרף? מעוניינים בפרטים נוספים ובמידע שיכול לשנות את חייכם או סתם להתייעץ איתנו? </p>
                 <br>
+                <p> *הכנסת נתונים בשפה האנגלית</p>
                 <input class="half" type="text" id="name" name="name" maxlength="20" required placeholder="שם">
                 <input class="half" type="tel" id="tel" name="tel" placeholder="טלפון" required >
                 <input class="whole" type="email" id="email" name="email" placeholder="מייל" required>

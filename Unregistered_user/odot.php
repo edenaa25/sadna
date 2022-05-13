@@ -55,6 +55,7 @@
             <p class="p" id="tel">רוצה תוצאות? התקשר עכשיו!<br>
             03-9262030</p> <br>
             <p class="p">לפרטים נוספים השאר פרטיך ונציג יחזור אליך בהקדם:</p>
+            <p class="p"> *הזנת נתונים בשפה האנגלית בלבד</p>
             <form action="#" method="post" class="p">
                 <input class="input2" type="text" id="name" name="name" required placeholder="שם מלא">
                 <input class="input2" type="tel" id="tel" name="tel" required placeholder="טלפון">
