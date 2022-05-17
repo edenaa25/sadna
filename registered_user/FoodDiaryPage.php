@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 
 ?>
 
@@ -30,13 +30,13 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <h4> <span style="font-weight: bold;">אז מה אכלת היום? </span> <br> </h4>
         </section>
 
         <section class="sec1 imgsec">
         <p style="color: red; text-align: right; font-weight: bolder;">*אם דילגת על ארוחה ציין זאת</p>
-        <p style="color: red; text-align: right; font-weight: bolder;"> *יש למלא את כל תיבות הטקסט</p>
+        <p style="color: red; text-align: right; font-weight: bolder;"> *יש למלא את כל תיבות הטקסט בשפה האנגלית בלבד</p>
         <form id="weightForm" action="#" method="post">
             <img class="imgsec" src="images/foodDiary.webp" alt="Smiley face" style="float:left;width:40%;margin-top: 10%; margin-left: 1%;">
             <label for="date">הכנס תאריך עבור מילוי יומן האכילה שלך לאותו היום:</label>
@@ -48,8 +48,8 @@
                                 ארוחת בוקר </label>                           
                         </td>
                         <td><textarea id="Breakfast" name="Breakfast"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת בוקר</textarea>                          
+                            rows="5" cols="33" placeholder="הקלד ארוחת בוקר" required>
+                            </textarea>                          
                         </td>
                     </tr>
                     <tr>
@@ -58,8 +58,8 @@
                             </label>
                         </td>
                         <td><textarea id="mid1" name="mid1"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ביניים ראשונה להיום</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ביניים ראשונה להיום" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -68,8 +68,8 @@
                             </label>
                         </td>
                         <td><textarea id="lunch" name="lunch"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת צהריים</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת צהריים" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -78,8 +78,8 @@
                             </label>
                         </td>
                         <td><textarea id="mid2" name="mid2"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ביניים שניה להיום</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ביניים שניה להיום" required>
+                            </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -88,8 +88,8 @@
                             </label>
                         </td>
                         <td><textarea id="dinner" name="dinner"
-                            rows="5" cols="33" required>
-                            הקלד ארוחת ערב</textarea>
+                            rows="5" cols="33" placeholder="הקלד ארוחת ערב" required>
+                            </textarea>
                         </td>
                     </tr>                   
             </table>

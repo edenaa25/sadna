@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+//  echo $_SESSION['login_user'];
 
 ?>
 
@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/Unregistered_user/CSS/mainCSS.css">
     <link rel="stylesheet" href="/registered_user/CSS/welcome.CSS">
+    <!-- <link rel="stylesheet" href="/registered_user/CSS/welcome2.css"> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -30,7 +31,7 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <h4> <span style="font-weight: bold;"> התזכורות שלך לשבוע: </span> <br> </h4>
             <?php echo $_SESSION['txt'] ?>
         </section>
@@ -76,7 +77,7 @@
                         //יש הוספה של 3 שורות ריקות, לטפל בזה
                         $res = $connection->query($sql);
                             if ($res === TRUE) {
-                                echo "השקילה שלך עודכנה ";
+                                echo  "<p style='color:red;'>השקילה שלך עודכנה בהצלחה</p>";
                             } else {
                                 echo "Error updating record: " . $conn->error;
                             }
@@ -89,18 +90,8 @@
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטים אישיים:</h4>
-            <table class="center">
-                <!-- <tr>
-                    <th style="padding: 5%;">כתובת</th>
-                    <th style="padding: 5%;">פלאפון</th>
-                    <th style="padding: 5%;">מייל</th>
-                </tr>
-                <tr>
-                    <td style="padding: 5%;"> <?php  echo $_SESSION['address'] ?></td>    
-                    <td style="padding: 5%;"> 0<?php  echo $_SESSION['phone']; ?></td>   
-                    <td style="padding: 5%;"> <?php echo $_SESSION['mail'] ?></td>                    
-                </tr>
-                </table> -->
+            <table class="center" >
+            
                 <tr>
                     <th>user name</th>
                     <th>first name</th>

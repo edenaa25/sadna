@@ -83,6 +83,7 @@
           appendPre(JSON.stringify(error, null, 2));
         });
       }
+      
 
       /**
        *  Called when the signed in status changes, to update the UI
@@ -111,7 +112,8 @@
        */
       function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
-        
+        window.location.reload();
+
       }
 
       /**

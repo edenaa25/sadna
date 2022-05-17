@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+ //echo $_SESSION['login_user'];
 
 ?>
 
@@ -30,20 +30,20 @@
 
     <main>
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name']  ?> </h1>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name']  ?> </h1>
             <p>
-                המאמן אשר מוביל אותך בתהליך ההרזייה הינו <?php echo $_SESSION['name_coach']  ?>
+            The fitness trainer who leads you through the process is  <strong> <?php echo $_SESSION['name_coach']  ?></strong>
             </p>
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם המאמן שלך:</h4>
-            <p> מספר פלאפון: 0<?php echo $_SESSION['phone_coach']  ?> </p>
+            <p> מספר פלאפון: <?php echo $_SESSION['phone_coach']  ?> </p>
             <p>מייל אישי: <?php echo $_SESSION['mail_coach']  ?></p>
         </section>
         <section class="sec1">
             <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">סרטוני הכושר שלך לשבוע:</h4>
             <div>
-                <p>אימון כוח:</p>
+                <p>:<?php echo $_SESSION['user_videos_type'][0]; ?></p>
                 <iframe id="video1" width="560" height="315" src="<?php echo $_SESSION['user_videos'][0]; ?>"></iframe><br><br>
                 <button id="button" onclick="makeBig1()">Big</button>
                 <button id="button" onclick="makeSmall1()">Small</button>
@@ -51,7 +51,7 @@
                 <br><br>
             </div><br>
             <div>
-                <p>אימון ארובי:</p>
+                <p>: <?php echo $_SESSION['user_videos_type'][1]; ?></p>
                 <iframe id="video2" width="560" height="315" src="<?php echo $_SESSION['user_videos'][1]; ?>"></iframe><br><br>
                 <button id="button" onclick="makeBig2()">Big</button>
                 <button id="button" onclick="makeSmall2()">Small</button>
@@ -59,7 +59,7 @@
                 <br><br>
             </div><br>
             <div>
-                <p>אימון פונקציונאלי:</p>
+                <p>:<?php echo $_SESSION['user_videos_type'][2]; ?></p>
                 <iframe id="video3" width="560" height="315" src="<?php echo $_SESSION['user_videos'][2]; ?>"></iframe><br><br>
                 <button id="button" onclick="makeBig3()">Big</button>
                 <button id="button" onclick="makeSmall3()">Small</button>

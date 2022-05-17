@@ -1,6 +1,6 @@
 <?php 
  include('seassion.php'); 
- echo $_SESSION['login_user'];
+ //echo $_SESSION['login_user'];
 
 ?>
 <!DOCTYPE html>
@@ -28,12 +28,16 @@
     <div style="clear: both;"></div>
     <main class="main">
         <section class="sec1">
-            <h1 class="p1sec1"> שלום <?php echo $_SESSION['first_name'] ?> </h1> <br>
+            <h1 class="p1sec1"> hi <?php echo $_SESSION['first_name'] ?> </h1> <br>
             <h4> בחלק זה תוכלו לראות את התקדמותכם, את התפריט שהתזונאי שלכם בנה לכם וגם תוכלו להזין את הנתונים שלכם 
                 אודות יומן האוכל והשקילה היומית שלכם
             </h4>
+            <p>
+            The nutritionist who leads you through the process is <strong> <?php echo $_SESSION['name_nutri']  ?></strong>
+            </p>
         </section>
         <section class="sec1">
+<<<<<<< HEAD
             <h4>
                 התפריט שלך:  
             </h4>
@@ -47,10 +51,23 @@
                 echo '<img class="img" src=" data: image/jpg;base64,'.base64_encode($row123['menu']).'" height= "300px"  alt = "someee">';
             ?>
            
+=======
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">פרטי יצירת קשר עם התזונאי שלך:</h4>
+            <p> מספר פלאפון: <?php echo $_SESSION['phone_nutri']  ?> </p>
+            <p>מייל אישי: <?php echo $_SESSION['mail_nutri']  ?></p>
+        </section>
+        <section class="sec1">
+        <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">התפריט שלך:</h4>
+            <img class="img" src="images/menu1.jpg" alt = "someee">
+            <!-- <?php
+                $ses_sql1=mysqli_query($connection, "select menu from Treatments where idTrit = 1");
+            ?> -->
+>>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
             <!-- <img src="/registered_user/images/menu1.jpg" alt="err"> -->
             <!-- תפריט שצריך להגיע מהטבלאות -->
         </section>
         <section class="sec1">
+        <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">עדכון נתוני תהליך יום יומיים:</h4>
             <h4>
                 מילוי של יומן האוכל בצורה עקבית ויומיומים חשוב מאוד לתהליך ויעזור לתזונאי שלך
                 להגדיר ולשנות בשבילך את התפריט לפי מידת הצורך ולהגדיר לך יעדים! <br> <br>
@@ -93,6 +110,54 @@
             </h4>
             <div style="clear: both;"></div>
 
+        </section>
+
+        <section class="sec1">
+            <h4 style="font-weight: bold; text-shadow: 2px 2px #E5E4E2;">עדכון נתוני תהליך תקופתיים:</h4>
+                    <form action="#" method="post">
+                        <label for="bmi">:Current BMI</label><br>
+                        <input type="number" id="bmi" name="bmi" required><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+                    </form>
+                    <?php 
+                        include('seassion.php'); 
+                        //echo $_SESSION['login_user'];
+                     if(isset($_POST["bmi"])){
+                        $bmi = $_POST["bmi"];
+                        
+                        //$sql = " INSERT INTO weighs SET  weight = '".$curr_weight."',date = '".$date."', user_name = '".$user."'";
+                        $sql= "UPDATE `Treatments` SET `BMI_curr` = '".$bmi."' WHERE `Treatments`.`user_name` = '".$_SESSION['login_user']."'";
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo  "<p style='color:red;'>BMI עודכן בהצלחה</p>";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                        ?> <br>
+                    <br>
+                    <form action="#" method="post">
+                        <label for="fat">:Current fat percentage</label><br>
+                        <input type="number" id="fat" name="fat" required><br><br>
+                        <input id="submit1" type="submit" value="עדכן">
+                    </form>
+                    <?php 
+                        //include('seassion.php'); 
+                        //echo $_SESSION['login_user'];
+                     if(isset($_POST["fat"])){
+                        $fat = $_POST["fat"];
+                        
+                        $sql= "UPDATE `Treatments` SET `fatP_curr` = '".$fat."' WHERE `Treatments`.`user_name` = '".$_SESSION['login_user']."'";
+                        $res = $connection->query($sql);
+                            if ($res === TRUE) {
+                                echo  "<p style='color:red;'>אחוזי שומן עודכן בהצלחה</p>";
+                            } else {
+                                echo "Error updating record: " . $conn->error;
+                            }
+                        }
+                        ?> <br>
+                    <br>
+                    
         </section>
     
     </main>

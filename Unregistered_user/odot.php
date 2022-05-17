@@ -55,12 +55,52 @@
             <p class="p" id="tel">רוצה תוצאות? התקשר עכשיו!<br>
             03-9262030</p> <br>
             <p class="p">לפרטים נוספים השאר פרטיך ונציג יחזור אליך בהקדם:</p>
-            <form action="contact.php" method="post" class="p">
+            <p class="p"> *הזנת נתונים בשפה האנגלית בלבד</p>
+            <form action="#" method="post" class="p">
                 <input class="input2" type="text" id="name" name="name" required placeholder="שם מלא">
                 <input class="input2" type="tel" id="tel" name="tel" required placeholder="טלפון">
                 <input class="input2" type="email" id="email" name="email" required placeholder="מייל">
                 <input style="margin:0 auto;" class="button2" type="submit" value="דברו איתי">
             </form>
+            <?php
+            $server_name = "localhost";
+            $user_name = "edenaais_edena";
+            $password = "123456";
+            $database = "edenaais_sadna";
+
+            $conn = new mysqli($server_name, $user_name, $password, $database);
+            if ($conn->connect_error) {
+                die("Error connecting: " . $conn->connect_error);
+            }
+            if(isset($_POST["name"])&& (isset($_POST["tel"]) ||isset($_POST["email"])) ){
+            $name = $_POST["name"];
+            $phone = $_POST["tel"];
+            $mail = $_POST["email"];
+
+            $dup= mysqli_query($conn, "select * from contact where phone='$phone' ");//בדיקת כפילויות לפי שם
+            if(mysqli_num_rows($dup) >0 && $phone!=null){
+                echo "you allready excist in our list, thank you <a  href='../index.html' >press here</a> to return to Home Page";
+            }
+            else{
+                if (empty($_POST["message"])){
+                    $txt = "no massege";
+                }
+                else{
+                    $txt = $_POST["message"];
+                }
+
+                $sql= "INSERT IGNORE INTO `contact` (`name`, `phone`, `mail`, `txt`) VALUES ('$name', '$phone', '$maill', '$txt')";
+                $res = $conn->query($sql);
+
+                    if ($res == TRUE) {
+                        echo "<p style='text-align:right;color:red;'>תודה רבה, נחזור אלייך בהקדם!</p>";
+                    } else {
+                        echo "Error updating record: " . $conn->error;
+                    }
+            }
+        }
+                $conn->close();
+            ?>
         </section>
     </main>
     

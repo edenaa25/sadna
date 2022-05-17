@@ -24,11 +24,12 @@
     <header id="header"></header>
     <aside class="a"><img src="/Unregistered_user/images/belly_fit.jpg" alt="" id="img"></aside>
     <main class="main">
-        <form action="candidates.php" method="post">
+        <form action="#" method="post">
          <h2>איזה כיף שבחרת להצטרף!!</h2>  
             <h5>אז מה עכשיו?<br>
             מלאו את הפרטים הבאים כדי שנוכל להכיר אותכם טוב יותר</h5>
-            <br>    
+            <br> 
+            <p style="color: red;">הכנסת פרטים בשפה האנגלית בלבד <br>יש למלא את כל הפרטים בכדי להתחיל בתהליך</p>   
             <div class="div">
                     <p class="p" >שם פרטי:</p> 
                     <input type="text" class="input" id="first_name" name="first_name" required>
@@ -36,6 +37,14 @@
                 <div class="div">
                     <p class="p" >שם משפחה:</p> 
                     <input type="text" class="input" id="last_name" name="last_name" required>
+                </div>
+                <div class="div">
+                    <p class="p" >כתובת:</p> 
+                    <input type="text" class="input" id="address" name="address" required>
+                </div>
+                <div class="div">
+                    <p class="p" >מספר פלאפון:</p> 
+                    <input type="text" class="input" id="phone" name="phone" required>
                 </div>
                 <div class="div">
                     <p class="p" >תעודת זהות:</p> 
@@ -52,7 +61,11 @@
                 </div>
                 <div class="div">
                     <p class="p" >BMI נוכחי :</p> 
-                    <input type="number" class="input" id="bmi" name="bmi" required>
+                    <input type="number" class="input" id="bmi" name="bmi" >
+                </div>
+                <div class="div">
+                    <p class="p" >אחוזי שומן :</p> 
+                    <input type="number" class="input" id="fat" name="fat" >
                 </div>
                 <div class="div">
                     <p class="p" > תאריך לידה:</p> 
@@ -77,6 +90,78 @@
                     <input type="submit" class="button2" value="הרשמה" >
                 </div>
         </form>
+        <?php
+                $server_name = "localhost";
+                $user_name = "edenaais_edena";
+                $password = "123456";
+                $database = "edenaais_sadna";
+
+                $conn = new mysqli($server_name, $user_name, $password, $database);
+                if ($conn->connect_error) {
+                    die("Error connecting: " . $conn->connect_error);
+                }
+                if(isset($_POST["first_name"])&& isset($_POST["last_name"])&& isset($_POST["address"])&& isset($_POST["phone"])&& isset($_POST["id"])&& isset($_POST["email"]) &&isset($_POST["age"])){
+                $name = $_POST["first_name"];
+                $lastName = $_POST["last_name"];
+                $address=$_POST["address"];
+                $phone=$_POST["phone"];
+                $id = $_POST["id"];//key
+                $email = $_POST["email"];
+                $wight = $_POST["wight"];
+                $bmi = $_POST["bmi"];
+                $fat=$_POST["fat"];
+                $age = $_POST["age"]; //date
+                if(isset($_POST['peanats'])){
+                    $peanats= 'peanats';
+                }
+                else{
+                    $peanats= '';
+                }
+                if(isset($_POST['Sesame'])){
+                    $Sesame= 'Sesame';
+                }
+                else{
+                    $Sesame= '';
+                }
+                if(isset($_POST['gluten'])){
+                    $gluten= 'gluten';
+                }
+                else{
+                    $gluten= '';
+                }
+                if(isset($_POST['Lactose'])){
+                    $Lactose= 'Lactose';
+                }
+                else{
+                    $Lactose= '';
+                }
+                if(isset($_POST['other']) && isset($_POST['other_allergy'])){
+                    $other=$_POST['other_allergy'];
+                }
+                else{
+                    $other= '';
+                }
+                if(isset($_POST['notes'])){
+                    $notes=$_POST['notes'];
+                }
+                else{
+                    $other= '';
+                }
+                $allergies= $peanats .','. $Sesame .', '. $gluten .', '. $Lactose .', '. $other;
+
+                $sql= "INSERT INTO `Candidates` (`Id`, `name`, `lastName`, `mail`, `address`, `phone`, `weight`, `bmi`, `fat`, `birth`, `allergies`, `txt`) VALUES ('$id', '$name', '$lastName', '$email', '$address', '$phone' ,'$wight', '$bmi','$fat', '$age', '$allergies', '$other')";
+                    $res = $conn->query($sql);
+
+                        if ($res == TRUE) {
+                            echo "ההרשמה בוצעה בצלחה";
+                        } else {
+                            echo "Error updating record: " . $conn->error;
+                           }
+               }
+               else{
+                   echo "יש למלא את כל הפרטים האישיים שלך";
+               }
+          ?>
     </main>
     <div style="clear: both;"></div>
     <footer id="footer"></footer>

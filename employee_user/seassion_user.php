@@ -12,12 +12,10 @@ if ($connection->connect_error) {
     die("Error connecting: " . $connection->connect_error);
 }
 // Selecting Database
-
 $db = mysqli_select_db($connection, "edenaais_sadna");
 session_start();// Starting Session  // למה יש פה עוד התחלת סשן שכבר עשינו את זה בדף הלוגאין
 // Storing Session
  $user_check=$_SESSION['login_user'];
-//echo $rows1 ."<br>". $rows2;
 // SQL Query To Fetch Complete Information Of User
 $ses_sql1=mysqli_query($connection, "SELECT * FROM `Administration` WHERE user_name='".$user_check."'"); 
 $ses_sql2=mysqli_query($connection, "SELECT * FROM `Coaches` WHERE user_name='".$user_check."'"); 
@@ -26,8 +24,7 @@ $ses_sql3=mysqli_query($connection, "SELECT * FROM `Nutritionists` WHERE user_na
 $row1 = mysqli_fetch_assoc($ses_sql1);
 $row2 = mysqli_fetch_assoc($ses_sql2);
 $row3 = mysqli_fetch_assoc($ses_sql3);
-    //$row1 = mysql_fetch_array($ses_sql1);
-    //echo $row1;
+    
 $login_session1 =$row1['user_name'];
 $login_session2 =$row2['user_name'];
 $login_session3 =$row3['user_name'];
@@ -38,8 +35,12 @@ if(!isset($login_session1) && !isset($login_session2) && !isset($login_session3)
     //header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
+<<<<<<< HEAD
     // echo "good seassion user";
     
+=======
+    //echo "good seassion user";
+>>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
     $ses_sql1=mysqli_query($connection, "select * from Administration where user_name='".$user_check."'");
     $ses_sql2=mysqli_query($connection, "select * from Coaches where user_name='".$user_check."'");
     $ses_sql3=mysqli_query($connection, "select * from Nutritionists where user_name='".$user_check."'");
@@ -76,9 +77,15 @@ else{
     $_SESSION['birth']=$row3['birth'];
     $_SESSION['employee_type']=$row3['type']; // nuthri=1, coaches=2, administration=3
    } 
+<<<<<<< HEAD
     echo $_SESSION['employee_type']."<br/>";
     echo $_SESSION['employee_id']."<br/>";
     echo "}<br>";
+=======
+    // echo $_SESSION['employee_type']."<br/>";
+    // echo $_SESSION['employee_id']."<br/>";
+    // echo "}<br>";
+>>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
 
     if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==1){ //שליפת נתנוים עבור מאמן או תזונאי
         $ses_sql1=mysqli_query($connection, "select * from Treatments where id_coach='".$_SESSION['employee_id']."' or id_nutri='".$_SESSION['employee_id']."'");
@@ -187,32 +194,32 @@ else{
              $_SESSION['clinets_threatments']=$clinets_threatments;// array for all alients threatments
              $_SESSION['clinets_weights']=$clinets_weights;// array for all weights of clients by order of client user_name
                 //הדפסת מערכים ומערכים דו מיימדים
-                echo "clients user name:" ;
-                echo "<br>";
-                foreach($_SESSION['clients'] as $val){
-                echo $val."<br/>";
-                } 
-                echo "clients data:";
-                echo "<br>";
+                // echo "clients user name:" ;
+                // echo "<br>";
+                // foreach($_SESSION['clients'] as $val){
+                // echo $val."<br/>";
+                // } 
+                // echo "clients data:";
+                // echo "<br>";
                 
-                for($i = 0; $i < count($_SESSION['clinets_data']); $i++) {
-                    foreach($_SESSION['clinets_data'][$i] as $value) {
-                        echo $value . "<br>";} }
+                // for($i = 0; $i < count($_SESSION['clinets_data']); $i++) {
+                //     foreach($_SESSION['clinets_data'][$i] as $value) {
+                //         echo $value . "<br>";} }
         
-                for($i = 0; $i < count($_SESSION['clinets_threatments']); $i++) {
-                    foreach($_SESSION['clinets_threatments'][$i] as $value) {
-                        echo $value . "<br>";
-                }
-                echo "clients weight by user name order:";
-                echo "<br>";
-                }
+                // for($i = 0; $i < count($_SESSION['clinets_threatments']); $i++) {
+                //     foreach($_SESSION['clinets_threatments'][$i] as $value) {
+                //         echo $value . "<br>";
+                // }
+                // echo "clients weight by user name order:";
+                // echo "<br>";
+                // }
             
-                for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
-                    foreach($_SESSION['clinets_weights'][$i] as $value) {
-                        echo $value . "<br>";
-                }
-                echo "}<br>";
-                }
+                // for($i = 0; $i < count($_SESSION['clinets_weights']); $i++) {
+                //     foreach($_SESSION['clinets_weights'][$i] as $value) {
+                //         echo $value . "<br>";
+                // }
+                // echo "}<br>";
+                // }
        
         }
         //שמירת כל הסרטונים כמערך
@@ -235,7 +242,8 @@ else{
         // }
         // echo "}<br>";
         // }
-        //שמירת סרטונים עבור לקוח
+
+        //שמירת סרטונים פר לקוח
         $vid1=array();
         $all_vid=array();
         $ses_sql1= mysqli_query($connection, "select * from usersVideo");
@@ -288,14 +296,14 @@ else{
         }
         $_SESSION['clients_messages']=$all_mess;
 
-        echo "clients_messages:";
-        echo "<br>";
-        for($i = 0; $i < count($_SESSION['clients_messages']); $i++) {
-            foreach ($_SESSION['clients_messages'][$i] as $value) {
-                echo $value . "<br>";
-        }
-        echo "}<br>";
-        }
+        // echo "clients_messages:";
+        // echo "<br>";
+        // for($i = 0; $i < count($_SESSION['clients_messages']); $i++) {
+        //     foreach ($_SESSION['clients_messages'][$i] as $value) {
+        //         echo $value . "<br>";
+        // }
+        // echo "}<br>";
+        // }
 
         
         //שמירת פרטי לקוחות אשר יש להוסיף לטבלת משתמשים עבור עובדי אדמיניסטרציה
@@ -310,41 +318,78 @@ else{
         }
         $_SESSION['candidates']=$all_Candidates;
 
-        // echo "clients_messages:";
-        // echo "<br>";
-        // for($i = 0; $i < count($_SESSION['candidates']); $i++) {
-        //     foreach ($_SESSION['candidates'][$i] as $value) {
-        //         echo $value . "<br>";
-        // }
-        // echo "}<br>";
-        // }
+        //שמירת כל שמות המשתמשים
+        $user_name1=array();
+        $all_users=array();
+        $ses_sql1= mysqli_query($connection, "select * from users");
+        $ses_sql2= mysqli_query($connection, "select * from Administration");
+        $ses_sql3= mysqli_query($connection, "select * from Coaches");
+        $ses_sql4= mysqli_query($connection, "select * from Nutritionists");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($user_name1, $row1["user_name"]);
+            array_push($all_users, $user_name1);//add one client to arrey
+                unset($user_name1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $user_name1 = array(); // arrey is here again          
+        }
+        while($row2=mysqli_fetch_array($ses_sql2,MYSQL_ASSOC)) {
+            array_push($user_name1, $row2["user_name"]);
+            array_push($all_users, $user_name1);//add one client to arrey
+                unset($user_name1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $user_name1 = array(); // arrey is here again          
+        }
+         while($row3=mysqli_fetch_array($ses_sql3,MYSQL_ASSOC)) {
+            array_push($user_name1, $row3["user_name"]);
+            array_push($all_users, $user_name1);//add one client to arrey
+                unset($user_name1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $user_name1 = array(); // arrey is here again          
+        }
+        while($row4=mysqli_fetch_array($ses_sql4,MYSQL_ASSOC)) {
+            array_push($user_name1, $row4["user_name"]);
+            array_push($all_users, $user_name1);//add one client to arrey
+                unset($user_name1); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $user_name1 = array(); // arrey is here again          
+        }
+        $_SESSION['all_user_name']=$all_users;
+       
+        //שמירת פרטי עובדים עבור הדפסה באזור אדמניסטרציה
+        $employee=array();
+        $employeeID=array();
+        $all_employes=array();
+        $all_id=array();
+        $ses_sql1= mysqli_query($connection, "select * from Nutritionists");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($employee, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($employeeID, $row1["Id"]);
+            array_push($all_employes, $employee);//add one client to arrey
+            array_push($all_id, $employeeID);//add one client to arrey
+                unset($employee); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employee = array(); // arrey is here again 
+                unset($employeeID); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employeeID = array(); // arrey is here again          
+        }
+        $_SESSION['Nutritionists_data']=$all_employes;
+        $_SESSION['Nutritionists_id']=$all_id;
 
 
-        // $client_vid=array();
-        // foreach($_SESSION['clients'] as $val){
-        //     //$user_name=$_SESSION['clinets_weights'][$i];
-        //     $ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name= '".$val."'");
-        //     while($row3=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
-        //         array_push($client_vid, $row3["id_video"]);
-        //     }
-        //     $add_arr=array();
-        //     array_push($add_arr,$val,$client_vid);
-        //     array_push($_SESSION["clients_videos"], $add_arr);
-        //     unset($client_vid); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-        //     $client_vid = array(); // arrey is here again  
-        //     unset($add_arr); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
-        //     $add_arr = array(); 
-           
-        // }
-        // echo "videos for client:";
-        // echo "<br>";
-        // for($i = 0; $i < count($_SESSION['clients_videos']); $i++) {
-        //     foreach($_SESSION['clinets_weights'][$i] as $value) {
-        //         echo $value . "<br>";
-        // }
-        // echo "}<br>";
-        // }
+        $employee2=array();
+        $employeeID2=array();
+        $all_employes2=array();
+        $all_ID2=array();
+        $ses_sql1= mysqli_query($connection, "select * from Coaches");
+        while($row1=mysqli_fetch_array($ses_sql1,MYSQL_ASSOC)) {
+            array_push($employee2, $row1["Id"], $row1["user_name"], $row1["name"],$row1["birth"],$row1["address"],$row1["phone"],$row1["mail"]);
+            array_push($employeeID2, $row1["Id"]);
+            array_push($all_employes2, $employee2);//add one client to arrey
+            array_push($all_ID2, $employeeID2);//add one client to arrey
+                unset($employee2); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employee2 = array(); // arrey is here again   
+                unset($employeeID2); // ניקוי מערך כדי שכל פעם יתווסף לקוח אחד ולא כולם שוב
+                $employeeID2 = array(); // arrey is here again         
+        }
+        $_SESSION['Coaches_data']=$all_employes2;
+        $_SESSION['Coaches_id']=$all_ID2;
 
+<<<<<<< HEAD
 
     //$ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
     //  $index=0;
@@ -481,5 +526,7 @@ else{
     // //     }
 
     // //php for weight forms:
+=======
+>>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
 }
  ?>
