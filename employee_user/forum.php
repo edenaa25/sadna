@@ -1,5 +1,5 @@
 <?php 
- include('seassion.php'); 
+ include('seassion_user.php'); 
  //echo $_SESSION['login_user'];  
 ?>
 
@@ -67,7 +67,7 @@
                 </div>
             </form>
             <?php 
-                    include('seassion.php'); 
+                    include('seassion_user.php'); 
                     if(isset($_POST["post"])){
                         $mess = $_POST['post'];
                         $user=$_SESSION['login_user'];
@@ -94,7 +94,7 @@
                 </div>
             </form>
             <?php 
-                    include('seassion.php'); 
+                    include('seassion_user.php'); 
                     if(isset($_POST["mess_id"]) && isset($_POST["comment"])){
                         $mess = $_POST['comment'];
                         $mess_id = $_POST['mess_id'];
@@ -125,7 +125,7 @@
     <script>
         $(document).ready(
             function(){
-              $("#header").load("/registered_user/navbar/navbar.html");
+              $("#header").load("/employee_user/navbar/navbar.html");
               $("#footer").load("/Unregistered_user/footer.html");
               $("#post").hide();
               $("#comment").hide();
