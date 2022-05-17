@@ -78,7 +78,7 @@
                         header("Refresh:0");
                         }
                         else{
-                            echo "post id and messege are required";
+                            echo "messege are required";
                         }
                         ?>
         </div>

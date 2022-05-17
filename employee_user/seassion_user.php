@@ -35,12 +35,7 @@ if(!isset($login_session1) && !isset($login_session2) && !isset($login_session3)
     //header('Location: ../index.php'); // Redirecting To Home Page
 }
 else{
-<<<<<<< HEAD
-    // echo "good seassion user";
-    
-=======
     //echo "good seassion user";
->>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
     $ses_sql1=mysqli_query($connection, "select * from Administration where user_name='".$user_check."'");
     $ses_sql2=mysqli_query($connection, "select * from Coaches where user_name='".$user_check."'");
     $ses_sql3=mysqli_query($connection, "select * from Nutritionists where user_name='".$user_check."'");
@@ -77,15 +72,9 @@ else{
     $_SESSION['birth']=$row3['birth'];
     $_SESSION['employee_type']=$row3['type']; // nuthri=1, coaches=2, administration=3
    } 
-<<<<<<< HEAD
-    echo $_SESSION['employee_type']."<br/>";
-    echo $_SESSION['employee_id']."<br/>";
-    echo "}<br>";
-=======
     // echo $_SESSION['employee_type']."<br/>";
     // echo $_SESSION['employee_id']."<br/>";
     // echo "}<br>";
->>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
 
     if($_SESSION['employee_type']==2 || $_SESSION['employee_type']==1){ //שליפת נתנוים עבור מאמן או תזונאי
         $ses_sql1=mysqli_query($connection, "select * from Treatments where id_coach='".$_SESSION['employee_id']."' or id_nutri='".$_SESSION['employee_id']."'");
@@ -389,144 +378,5 @@ else{
         $_SESSION['Coaches_data']=$all_employes2;
         $_SESSION['Coaches_id']=$all_ID2;
 
-<<<<<<< HEAD
-
-    //$ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
-    //  $index=0;
-    //  $user_videos_url=array();
-    //  while($row1=mysqli_fetch_array($ses_sql1)){
-    //      $user_video_id = $row1["id_video"];
-    //      //echo $user_videos[$index] ."<br />";
-    //      $ses_sql2= mysqli_query($connection, "select url from FitnessVideo where id_video='".$user_video_id."'");
-    //      $row2 = mysqli_fetch_assoc($ses_sql2);
-    //      $url= $row2['url'];
-    //      $user_videos_url[$index]= $url;
-    //      //echo $user_videos_url[$index] ."<br />";
-    //      $index= $index+1;    
-    //  }
-    //  $_SESSION['user_videos']=  $user_videos_url;
-    // //  foreach($_SESSION['user_videos'] as $val){
-    // //         echo $val."<br/>";
-    // //     }
-
-    // $ses_sql1=mysqli_query($connection, "select * from Treatments where Id='".$id_coach."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $name_coach = $row1['name'];
-    // $_SESSION['name_coach']= $name_coach;
-    // $phone_coach = $row1['phone'];
-    // $_SESSION['phone_coach']= $phone_coach;
-    // $mail_coach = $row1['mail'];
-    // $_SESSION['mail_coach']= $mail_coach;
-
-    // //
-    
-    // $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $id_nutri = $row1['id_nutri'];
-    // $_SESSION['id_nutri']= $id_nutri;
-    // //echo $_SESSION['id_nutri'];
-
-    // $ses_sql1=mysqli_query($connection, "select * from Nutritionists where Id='".$id_nutri."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $name_nutri = $row1['name'];
-    // $_SESSION['name_nutri']= $name_nutri;
-    // $phone_nutri = $row1['phone'];
-    // $_SESSION['phone_nutri']= $phone_nutri;
-    // $mail_nutri = $row1['mail'];
-    // $_SESSION['mail_nutri']= $mail_nutri;
-
-
-    // //
-   
-
-    // $ses_sql1=mysqli_query($connection, "select id_nutri from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $id_nutri = $row1['id_nutri'];
-    // $_SESSION['id_nutri']=  $id_nutri;
-    // //echo $_SESSION['id_nutri'];
-
-    // $ses_sql1=mysqli_query($connection, "select BMI_start from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $BMI_start = $row1['BMI_start'];
-    // $_SESSION['BMI_start']=  $BMI_start;
-    // //echo $_SESSION['BMI_start'];
-
-    // $ses_sql1=mysqli_query($connection, "select BMI_curr from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $BMI_curr = $row1['BMI_curr'];
-    // $_SESSION['BMI_curr']=  $BMI_curr;
-    // //echo $_SESSION['BMI_curr'];
-
-    $ses_sql1=mysqli_query($connection, "select menu_id from Treatments where user_name='".$user_check."'");
-    $row1 = mysqli_fetch_assoc($ses_sql1);
-    $ses_sql1=mysqli_query($connection, "select * from menus where id ='".$row1['menu_id']."'");
-    $row2 = mysqli_fetch_assoc($ses_sql1);
-    $menu = $row2['menu'];
-    $_SESSION['menu']=  $menu;
-    //echo $_SESSION['menu'];
-
-    // $ses_sql1=mysqli_query($connection, "select txt from Treatments where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $txt = $row1['txt'];
-    // $_SESSION['txt']=  $txt;
-    // //echo $_SESSION['txt'];
-
-    // $ses_sql1=mysqli_query($connection, "select first_name from users where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $first_name = $row1['first_name'];
-    // $_SESSION['first_name']=  $first_name;
-    // //echo $_SESSION['first_name'];
-
-    // $ses_sql1=mysqli_query($connection, "select last_name from users where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $last_name = $row1['last_name'];
-    // $_SESSION['last_name']=  $last_name;
-    // //echo $_SESSION['last_name'];
-
-    // $ses_sql1=mysqli_query($connection, "select * from users where user_name='".$user_check."'");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $address = $row1['address'];
-    // $_SESSION['address']=  $address;
-    // //echo $_SESSION['address'];
-    // $phone = $row1['phone'];
-    // $_SESSION['phone']=  $phone;
-    // //echo $_SESSION['phone'];
-    // $mail = $row1['mail'];
-    // $_SESSION['mail']=  $mail;
-    // //echo $_SESSION['mail'];  
-
-    // $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date asc limit 1");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $first_weight = $row1['weight'];
-    // $_SESSION['first_weight']=  $first_weight;
-    // //echo $_SESSION['first_weight'];
-
-    // $ses_sql1=mysqli_query($connection, "select weight from weighs where user_name='".$user_check."' order by date desc limit 1");
-    // $row1 = mysqli_fetch_assoc($ses_sql1);
-    // $last_weight = $row1['weight'];
-    // $_SESSION['last_weight']=  $last_weight;
-    // //echo $_SESSION['last_weight'];
-
-    //  $ses_sql1= mysqli_query($connection, "select * from usersVideo where user_name='".$user_check."'");
-    //  $index=0;
-    //  $user_videos_url=array();
-    //  while($row1=mysqli_fetch_array($ses_sql1)){
-    //      $user_video_id = $row1["id_video"];
-    //      //echo $user_videos[$index] ."<br />";
-    //      $ses_sql2= mysqli_query($connection, "select url from FitnessVideo where id_video='".$user_video_id."'");
-    //      $row2 = mysqli_fetch_assoc($ses_sql2);
-    //      $url= $row2['url'];
-    //      $user_videos_url[$index]= $url;
-    //      //echo $user_videos_url[$index] ."<br />";
-    //      $index= $index+1;    
-    //  }
-    //  $_SESSION['user_videos']=  $user_videos_url;
-    // //  foreach($_SESSION['user_videos'] as $val){
-    // //         echo $val."<br/>";
-    // //     }
-
-    // //php for weight forms:
-=======
->>>>>>> cfbd282647fdea871c18efa40b11a4bfd136ee94
 }
  ?>

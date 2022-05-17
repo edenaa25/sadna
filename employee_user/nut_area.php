@@ -55,7 +55,7 @@
 
         </section>
         <section class="sec">
-        <h4 style="font-weight:bolder;">התפריטים שלך:</h4>
+        <h4 style="font-weight:bolder;">התפריטים במאגר:</h4>
         <?php
             $ses_sql1= mysqli_query($connection, "select * from menus");
             while($row1=mysqli_fetch_array($ses_sql1)){ ?>

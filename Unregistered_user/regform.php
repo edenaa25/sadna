@@ -153,7 +153,7 @@
                     $res = $conn->query($sql);
 
                         if ($res == TRUE) {
-                            echo "ההרשמה בוצעה בצלחה";
+                            echo "ההרשמה בוצעה בהצלחה";
                         } else {
                             echo "Error updating record: " . $conn->error;
                            }
