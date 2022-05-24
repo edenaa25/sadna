@@ -111,10 +111,11 @@
                     if(isset($_POST['user']) && isset($_POST['id'])){
                         $user = $_POST['user'];
                         $id = $_POST['id'];
-                        $sql = "UPDATE `Treatments` SET `menu_id` = '$id' WHERE `Treatments`.`user_name` = $user;";
+                        $sql = "UPDATE `Treatments` SET `menu_id` = '$id' WHERE `Treatments`.`user_name` = '$user';";
                         $res = $connection->query($sql);
                         if ($res === TRUE) {
                             echo "התפריט עודכן עבור הלקוח בהצלחה";
+                            $sql = "";
                         } else {
                             echo "Error updating record: " . $conn->error;
                         }
